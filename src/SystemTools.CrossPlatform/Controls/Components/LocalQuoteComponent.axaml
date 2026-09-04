@@ -1,0 +1,44 @@
+<ci:ComponentBase
+    x:Class="SystemTools.CrossPlatform.Controls.Components.LocalQuoteComponent"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ci="http://classisland.tech/schemas/xaml/core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SystemTools.CrossPlatform.Controls.Components"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:settings="clr-namespace:SystemTools.CrossPlatform.Models.ComponentSettings"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:TypeArguments="settings:LocalQuoteSettings"
+    Loaded="LocalQuoteComponent_OnLoaded"
+    Unloaded="LocalQuoteComponent_OnUnloaded"
+    mc:Ignorable="d">
+    <Grid DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:LocalQuoteComponent}}"
+          ClipToBounds="True">
+        <ProgressBar VerticalAlignment="Top"
+                     HorizontalAlignment="Stretch"
+                     Height="4"
+                     Minimum="0"
+                     Maximum="100"
+                     IsVisible="{Binding ShowTopProgressBar}"
+                     Value="{Binding CurrentProgressPercent}" />
+
+        <TextBlock x:Name="QuoteTextBlock"
+                   Text="{Binding CurrentQuote}"
+                   TextWrapping="NoWrap"
+                   TextTrimming="CharacterEllipsis"
+                   VerticalAlignment="Center">
+            <TextBlock.RenderTransform>
+                <TranslateTransform Y="0" />
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <ProgressBar VerticalAlignment="Bottom"
+                     HorizontalAlignment="Stretch"
+                     Height="4"
+                     Minimum="0"
+                     Maximum="100"
+                     IsVisible="{Binding ShowBottomProgressBar}"
+                     Value="{Binding CurrentProgressPercent}" />
+    </Grid>
+</ci:ComponentBase>

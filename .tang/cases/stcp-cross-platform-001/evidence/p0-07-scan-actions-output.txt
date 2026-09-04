@@ -1,0 +1,319 @@
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : E:\My Github Projects\SystemTools\Actions
+Scope    : Source
+Time(UTC): 2026-09-03T15:59:43Z
+[HIT-GATE] AdjustScreenBrightnessAction.cs | R07 | :5: | using System.Management;
+[INFO] AdjustScreenBrightnessAction.cs | I05 | :75: | var scope = new ManagementScope(@"\\.\root\wmi");
+[INFO] AdjustScreenBrightnessAction.cs | I05 | :79: | using var searcher = new ManagementObjectSearcher(scope, query);
+[HIT-GATE] AdvancedShutdownAction.cs | R15 | :165: | FileName = "cmd.exe",
+[HIT-GATE] AdvancedShutdownAction.cs | R21 | :207: | FileName = "shutdown",
+[HIT-GATE] AdvancedShutdownAction.cs | R21 | :395: | FileName = "shutdown",
+[HIT-GATE] AltF4Action.cs | R01 | :7: | using Windows.Win32;
+[HIT-GATE] AltF4Action.cs | R02 | :26: | PInvoke.keybd_event(VK_MENU, 0, 0, UIntPtr.Zero);
+[INFO] AltF4Action.cs | I01 | :26: | PInvoke.keybd_event(VK_MENU, 0, 0, UIntPtr.Zero);
+[HIT-GATE] AltF4Action.cs | R02 | :30: | PInvoke.keybd_event(VK_F4, 0, 0, UIntPtr.Zero);
+[INFO] AltF4Action.cs | I01 | :30: | PInvoke.keybd_event(VK_F4, 0, 0, UIntPtr.Zero);
+[HIT-GATE] AltF4Action.cs | R02 | :34: | PInvoke.keybd_event(VK_F4, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] AltF4Action.cs | I01 | :34: | PInvoke.keybd_event(VK_F4, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] AltF4Action.cs | R02 | :39: | PInvoke.keybd_event(VK_MENU, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] AltF4Action.cs | I01 | :39: | PInvoke.keybd_event(VK_MENU, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] AltTabAction.cs | R01 | :7: | using Windows.Win32;
+[HIT-GATE] AltTabAction.cs | R02 | :26: | PInvoke.keybd_event(VK_MENU, 0, 0, UIntPtr.Zero);
+[INFO] AltTabAction.cs | I01 | :26: | PInvoke.keybd_event(VK_MENU, 0, 0, UIntPtr.Zero);
+[HIT-GATE] AltTabAction.cs | R02 | :30: | PInvoke.keybd_event(VK_TAB, 0, 0, UIntPtr.Zero);
+[INFO] AltTabAction.cs | I01 | :30: | PInvoke.keybd_event(VK_TAB, 0, 0, UIntPtr.Zero);
+[HIT-GATE] AltTabAction.cs | R02 | :34: | PInvoke.keybd_event(VK_TAB, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] AltTabAction.cs | I01 | :34: | PInvoke.keybd_event(VK_TAB, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] AltTabAction.cs | R02 | :39: | PInvoke.keybd_event(VK_MENU, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] AltTabAction.cs | I01 | :39: | PInvoke.keybd_event(VK_MENU, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] BlackScreenHtmlAction.cs | R01 | :13: | using Windows.Win32;
+[HIT-GATE] BlackScreenHtmlAction.cs | X01 | :47: | FileName = "cmd",
+[HIT-GATE] BlackScreenHtmlAction.cs | R02 | :64: | PInvoke.keybd_event(VK_F11, 0, 0, UIntPtr.Zero);
+[INFO] BlackScreenHtmlAction.cs | I01 | :64: | PInvoke.keybd_event(VK_F11, 0, 0, UIntPtr.Zero);
+[HIT-GATE] BlackScreenHtmlAction.cs | R02 | :66: | PInvoke.keybd_event(VK_F11, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] BlackScreenHtmlAction.cs | I01 | :66: | PInvoke.keybd_event(VK_F11, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] BlackScreenHtmlAction.cs | R13 | :87: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] BlackScreenHtmlAction.cs | X04 | :87: | //[DllImport("user32.dll", SetLastError = true)]
+[INFO] BlackScreenHtmlAction.cs | I01 | :88: | //private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+[HIT-GATE] CameraCaptureAction.cs | X05 | :48: | string ffmpegPath = DependencyPaths.GetFfmpegPath();
+[HIT-GATE] CameraCaptureAction.cs | R19 | :52: | throw new Exception($"找不到 ffmpeg.exe: {ffmpegPath}");
+[HIT-GATE] CancelShutdownAction.cs | R21 | :29: | FileName = "shutdown",
+[HIT-GATE] ChangeWallpaperAction.cs | R05 | :4: | using Microsoft.Win32;
+[HIT-GATE] ChangeWallpaperAction.cs | R01 | :14: | using Windows.Win32;
+[HIT-GATE] ChangeWallpaperAction.cs | R02 | :169: | result = PInvoke.SystemParametersInfo(
+[INFO] ChangeWallpaperAction.cs | I04 | :169: | result = PInvoke.SystemParametersInfo(
+[INFO] ClickSimulationAction.cs | I02 | :38: | mouse_event(MOUSEEVENTF_LEFTDOWN, Settings.X, Settings.Y, 0, UIntPtr.Zero);
+[INFO] ClickSimulationAction.cs | I02 | :40: | mouse_event(MOUSEEVENTF_LEFTUP, Settings.X, Settings.Y, 0, UIntPtr.Zero);
+[HIT-GATE] ClickSimulationAction.cs | R13 | :51: | [DllImport("user32.dll")] private static extern bool SetCursorPos(int X, int Y);
+[HIT-GATE] ClickSimulationAction.cs | X04 | :51: | [DllImport("user32.dll")] private static extern bool SetCursorPos(int X, int Y);
+[HIT-GATE] ClickSimulationAction.cs | R13 | :52: | [DllImport("user32.dll")] private static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
+[HIT-GATE] ClickSimulationAction.cs | X04 | :52: | [DllImport("user32.dll")] private static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
+[INFO] ClickSimulationAction.cs | I02 | :52: | [DllImport("user32.dll")] private static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
+[HIT-GATE] CloneDisplayAction.cs | R18 | :30: | FileName = "DisplaySwitch.exe",
+[HIT-GATE] CloneDisplayAction.cs | R18 | :53: | throw new Exception("无法启动 DisplaySwitch.exe 进程");
+[HIT-GATE] CopyAction.cs | R15 | :30: | FileName = "cmd.exe",
+[HIT-GATE] CopyAction.cs | R16 | :96: | psi.FileName = "robocopy.exe";
+[HIT-GATE] CtrlZAction.cs | R01 | :7: | using Windows.Win32;
+[HIT-GATE] CtrlZAction.cs | R02 | :26: | PInvoke.keybd_event(VK_CONTROL, 0, 0, UIntPtr.Zero);
+[INFO] CtrlZAction.cs | I01 | :26: | PInvoke.keybd_event(VK_CONTROL, 0, 0, UIntPtr.Zero);
+[HIT-GATE] CtrlZAction.cs | R02 | :30: | PInvoke.keybd_event(VK_Z, 0, 0, UIntPtr.Zero);
+[INFO] CtrlZAction.cs | I01 | :30: | PInvoke.keybd_event(VK_Z, 0, 0, UIntPtr.Zero);
+[HIT-GATE] CtrlZAction.cs | R02 | :34: | PInvoke.keybd_event(VK_Z, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] CtrlZAction.cs | I01 | :34: | PInvoke.keybd_event(VK_Z, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] CtrlZAction.cs | R02 | :39: | PInvoke.keybd_event(VK_CONTROL, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] CtrlZAction.cs | I01 | :39: | PInvoke.keybd_event(VK_CONTROL, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] DeleteAction.cs | R15 | :29: | FileName = "cmd.exe",
+[INFO] DisableDeviceAction.cs | I10 | :49: | string ps1Content = $@"$device = Get-PnpDevice | Where-Object {{$_.InstanceId -eq ""{deviceId}""}}
+[INFO] DisableDeviceAction.cs | I10 | :52: | Disable-PnpDevice -InstanceId $device.InstanceId -Confirm:$false
+[HIT-GATE] DisableMouseAction.cs | X06 | :29: | var batchPath = Path.Combine(pluginDir, "jinyongshubiao.bat");
+[INFO] EnableDeviceAction.cs | I10 | :49: | string ps1Content = $@"$device = Get-PnpDevice | Where-Object {{$_.InstanceId -eq ""{deviceId}""}}
+[INFO] EnableDeviceAction.cs | I10 | :52: | Enable-PnpDevice -InstanceId $device.InstanceId -Confirm:$false
+[HIT-GATE] EnableMouseAction.cs | X06 | :29: | var batchPath = Path.Combine(pluginDir, "huifu.bat");
+[HIT-GATE] EnterKeyAction.cs | R01 | :7: | using Windows.Win32;
+[HIT-GATE] EnterKeyAction.cs | R02 | :25: | PInvoke.keybd_event(VK_RETURN, 0, 0, UIntPtr.Zero);
+[INFO] EnterKeyAction.cs | I01 | :25: | PInvoke.keybd_event(VK_RETURN, 0, 0, UIntPtr.Zero);
+[HIT-GATE] EnterKeyAction.cs | R02 | :31: | PInvoke.keybd_event(VK_RETURN, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] EnterKeyAction.cs | I01 | :31: | PInvoke.keybd_event(VK_RETURN, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] EscAction.cs | R01 | :7: | using Windows.Win32;
+[HIT-GATE] EscAction.cs | R02 | :24: | PInvoke.keybd_event(VK_ESCAPE, 0, 0, UIntPtr.Zero);
+[INFO] EscAction.cs | I01 | :24: | PInvoke.keybd_event(VK_ESCAPE, 0, 0, UIntPtr.Zero);
+[HIT-GATE] EscAction.cs | R02 | :26: | PInvoke.keybd_event(VK_ESCAPE, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] EscAction.cs | I01 | :26: | PInvoke.keybd_event(VK_ESCAPE, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] ExtendDisplayAction.cs | R18 | :30: | FileName = "DisplaySwitch.exe",
+[HIT-GATE] ExtendDisplayAction.cs | R18 | :53: | throw new Exception("无法启动 DisplaySwitch.exe 进程");
+[HIT-GATE] ExternalDisplayAction.cs | R18 | :30: | FileName = "DisplaySwitch.exe",
+[HIT-GATE] ExternalDisplayAction.cs | R18 | :53: | throw new Exception("无法启动 DisplaySwitch.exe 进程");
+[HIT-GATE] F11Action.cs | R01 | :7: | using Windows.Win32;
+[HIT-GATE] F11Action.cs | R02 | :24: | PInvoke.keybd_event(VK_F11, 0, 0, UIntPtr.Zero);
+[INFO] F11Action.cs | I01 | :24: | PInvoke.keybd_event(VK_F11, 0, 0, UIntPtr.Zero);
+[HIT-GATE] F11Action.cs | R02 | :26: | PInvoke.keybd_event(VK_F11, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] F11Action.cs | I01 | :26: | PInvoke.keybd_event(VK_F11, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] ImmediateRestartAction.cs | R01 | :8: | using Windows.Win32;
+[HIT-GATE] ImmediateRestartAction.cs | R13 | :16: | [DllImport("ntdll.dll", EntryPoint = "RtlAdjustPrivilege")] // 此API无法使用CsWin32包生成，因为这是个不公开的函数
+[HIT-GATE] ImmediateRestartAction.cs | X04 | :16: | [DllImport("ntdll.dll", EntryPoint = "RtlAdjustPrivilege")] // 此API无法使用CsWin32包生成，因为这是个不公开的函数
+[HIT-GATE] ImmediateRestartAction.cs | R02 | :28: | if(!PInvoke.ExitWindowsEx(Windows.Win32.System.Shutdown.EXIT_WINDOWS_FLAGS.EWX_REBOOT,Windows.Win32.System.Shutdown.SHUTDOWN_REASON.SHTDN_REASON_FLAG_PLANNED))
+[HIT-GATE] ImmediateRestartAction.cs | R21 | :38: | //        FileName = "shutdown",
+[HIT-GATE] ImmediateShutdownAction.cs | R01 | :8: | using Windows.Win32;
+[HIT-GATE] ImmediateShutdownAction.cs | R13 | :16: | [DllImport("ntdll.dll", EntryPoint = "RtlAdjustPrivilege")] // 此API无法使用CsWin32包生成，因为这是个不公开的函数
+[HIT-GATE] ImmediateShutdownAction.cs | X04 | :16: | [DllImport("ntdll.dll", EntryPoint = "RtlAdjustPrivilege")] // 此API无法使用CsWin32包生成，因为这是个不公开的函数
+[HIT-GATE] ImmediateShutdownAction.cs | R02 | :28: | if (!PInvoke.ExitWindowsEx(Windows.Win32.System.Shutdown.EXIT_WINDOWS_FLAGS.EWX_SHUTDOWN | Windows.Win32.System.Shutdown.EXIT_WINDOWS_FLAGS.EWX_POWEROFF, Window...
+[HIT-GATE] ImmediateShutdownAction.cs | R21 | :38: | //        FileName = "shutdown",
+[HIT-GATE] InternalDisplayAction.cs | R18 | :30: | FileName = "DisplaySwitch.exe",
+[HIT-GATE] InternalDisplayAction.cs | R18 | :53: | throw new Exception("无法启动 DisplaySwitch.exe 进程");
+[HIT-GATE] LockScreenAction.cs | R17 | :29: | FileName = "rundll32.exe",
+[HIT-GATE] MoveAction.cs | R15 | :30: | FileName = "cmd.exe",
+[HIT-GATE] MoveAction.cs | R16 | :96: | psi.FileName = "robocopy.exe";
+[HIT-GATE] RestartAsAdminAction.cs | X08 | :33: | Verb = "runas",
+[HIT-GATE] RestartAsAdminAction.cs | X07 | :63: | var id = WindowsIdentity.GetCurrent();
+[HIT-GATE] RestartAsAdminAction.cs | X07 | :64: | var principal = new WindowsPrincipal(id);
+[HIT-GATE] ScreenShotAction.cs | R03 | :6: | using System.Windows.Forms;
+[INFO] ScreenShotAction.cs | I07 | :53: | graphics.CopyFromScreen(screen.Bounds.X, screen.Bounds.Y, 0, 0, screen.Bounds.Size);
+[HIT-GATE] SetVolume.cs | R01 | :11: | using Windows.Win32;
+[INFO] SetVolume.cs | I08 | :62: | int GetDefaultAudioEndpoint(EDataFlow dataFlow, ERole role, out IMMDevice endpoint);
+[INFO] SetVolume.cs | I08 | :68: | internal interface IMMDevice
+[INFO] SetVolume.cs | I08 | :77: | internal interface IAudioEndpointVolume
+[INFO] SetVolume.cs | I08 | :194: | public IMMDevice GetDefaultAudioEndpoint(EDataFlow dataFlow, ERole role)
+[INFO] SetVolume.cs | I08 | :205: | public static IAudioEndpointVolume GetAudioEndpointVolume(this IMMDevice device)
+[INFO] SetVolume.cs | I08 | :209: | return (IAudioEndpointVolume)result;
+[INFO] SetVolume.cs | I08 | :212: | public static void SetMasterVolumeLevelScalar(this IMMDevice device, float level, Guid eventContext)
+[INFO] SetVolume.cs | I08 | :218: | public static void SetMute(this IMMDevice device, bool mute, Guid eventContext)
+[HIT-GATE] ShowDesktopAction.cs | R01 | :10: | using Windows.Win32;
+[HIT-GATE] ShowDesktopAction.cs | R01 | :11: | using Windows.Win32.UI.Input.KeyboardAndMouse;
+[HIT-GATE] ShowDesktopAction.cs | R02 | :29: | PInvoke.keybd_event(VK_LWIN, 0, 0, UIntPtr.Zero);
+[INFO] ShowDesktopAction.cs | I01 | :29: | PInvoke.keybd_event(VK_LWIN, 0, 0, UIntPtr.Zero);
+[HIT-GATE] ShowDesktopAction.cs | R02 | :32: | PInvoke.keybd_event(VK_D, 0, 0, UIntPtr.Zero);
+[INFO] ShowDesktopAction.cs | I01 | :32: | PInvoke.keybd_event(VK_D, 0, 0, UIntPtr.Zero);
+[HIT-GATE] ShowDesktopAction.cs | R02 | :35: | PInvoke.keybd_event(VK_D, 0, KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP, UIntPtr.Zero);
+[INFO] ShowDesktopAction.cs | I01 | :35: | PInvoke.keybd_event(VK_D, 0, KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP, UIntPtr.Zero);
+[HIT-GATE] ShowDesktopAction.cs | R02 | :38: | PInvoke.keybd_event(VK_LWIN, 0, KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP, UIntPtr.Zero);
+[INFO] ShowDesktopAction.cs | I01 | :38: | PInvoke.keybd_event(VK_LWIN, 0, KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP, UIntPtr.Zero);
+[HIT-GATE] ShutdownAction.cs | R03 | :7: | using System.Windows.Forms;
+[HIT-GATE] ShutdownAction.cs | R21 | :32: | FileName = "shutdown",
+[HIT-GATE] ShutdownAction.cs | X03 | :43: | SendKeys.SendWait("{ENTER}");
+[HIT-GATE] SimulateKeyboardAction.cs | R01 | :11: | using Windows.Win32;
+[HIT-GATE] SimulateKeyboardAction.cs | R02 | :51: | PInvoke.keybd_event(action.KeyCode, 0, 0, UIntPtr.Zero);
+[INFO] SimulateKeyboardAction.cs | I01 | :51: | PInvoke.keybd_event(action.KeyCode, 0, 0, UIntPtr.Zero);
+[HIT-GATE] SimulateKeyboardAction.cs | R02 | :54: | PInvoke.keybd_event(action.KeyCode, 0,
+[INFO] SimulateKeyboardAction.cs | I01 | :54: | PInvoke.keybd_event(action.KeyCode, 0,
+[HIT-GATE] SimulateKeyboardAction.cs | R02 | :58: | PInvoke.keybd_event(action.KeyCode, 0, 0, UIntPtr.Zero);
+[INFO] SimulateKeyboardAction.cs | I01 | :58: | PInvoke.keybd_event(action.KeyCode, 0, 0, UIntPtr.Zero);
+[HIT-GATE] SimulateKeyboardAction.cs | R02 | :60: | PInvoke.keybd_event(action.KeyCode, 0,
+[INFO] SimulateKeyboardAction.cs | I01 | :60: | PInvoke.keybd_event(action.KeyCode, 0,
+[HIT-GATE] SimulateKeyboardAction.cs | R13 | :112: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] SimulateKeyboardAction.cs | X04 | :112: | //[DllImport("user32.dll", SetLastError = true)]
+[INFO] SimulateKeyboardAction.cs | I01 | :113: | //private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+[HIT-GATE] SimulateKeyCombinationAction.cs | R01 | :12: | using Windows.Win32;
+[HIT-GATE] SimulateKeyCombinationAction.cs | R01 | :13: | using Windows.Win32.UI.Input.KeyboardAndMouse;
+[HIT-GATE] SimulateKeyCombinationAction.cs | R02 | :48: | PInvoke.keybd_event(keyCode, 0, 0, UIntPtr.Zero);
+[INFO] SimulateKeyCombinationAction.cs | I01 | :48: | PInvoke.keybd_event(keyCode, 0, 0, UIntPtr.Zero);
+[HIT-GATE] SimulateKeyCombinationAction.cs | R02 | :64: | PInvoke.keybd_event(pressedKeys[i], 0, KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP, UIntPtr.Zero);
+[INFO] SimulateKeyCombinationAction.cs | I01 | :64: | PInvoke.keybd_event(pressedKeys[i], 0, KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP, UIntPtr.Zero);
+[HIT-GATE] SimulateMouseAction.cs | R01 | :13: | using Windows.Win32;
+[HIT-GATE] SimulateMouseAction.cs | X06 | :38: | await ExecuteBatchFile("jinyongshubiao.bat", "禁用鼠标");
+[HIT-GATE] SimulateMouseAction.cs | R02 | :57: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :57: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :64: | PInvoke.SetCursorPos(action.X, action.Y);
+[HIT-GATE] SimulateMouseAction.cs | R02 | :66: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :66: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :70: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :70: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :78: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :78: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :85: | PInvoke.SetCursorPos(action.X, action.Y);
+[HIT-GATE] SimulateMouseAction.cs | R02 | :87: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :87: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :91: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :91: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :99: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :99: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :106: | PInvoke.SetCursorPos(action.X, action.Y);
+[HIT-GATE] SimulateMouseAction.cs | R02 | :108: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :108: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :112: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :112: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :120: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :120: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :127: | PInvoke.SetCursorPos(action.X, action.Y);
+[HIT-GATE] SimulateMouseAction.cs | R02 | :129: | PInvoke.mouse_event(Windows.Win32.UI.Input.KeyboardAndMouse.MOUSE_EVENT_FLAGS.MOUSEEVENTF_WHEEL,
+[INFO] SimulateMouseAction.cs | I02 | :129: | PInvoke.mouse_event(Windows.Win32.UI.Input.KeyboardAndMouse.MOUSE_EVENT_FLAGS.MOUSEEVENTF_WHEEL,
+[HIT-GATE] SimulateMouseAction.cs | R02 | :136: | PInvoke.SetCursorPos(action.X, action.Y);
+[HIT-GATE] SimulateMouseAction.cs | R02 | :138: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :138: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :145: | PInvoke.SetCursorPos(action.X, action.Y);
+[HIT-GATE] SimulateMouseAction.cs | R02 | :151: | PInvoke.mouse_event(
+[INFO] SimulateMouseAction.cs | I02 | :151: | PInvoke.mouse_event(
+[HIT-GATE] SimulateMouseAction.cs | R02 | :164: | PInvoke.mouse_event(Windows.Win32.UI.Input.KeyboardAndMouse.MOUSE_EVENT_FLAGS.MOUSEEVENTF_LEFTUP,
+[INFO] SimulateMouseAction.cs | I02 | :164: | PInvoke.mouse_event(Windows.Win32.UI.Input.KeyboardAndMouse.MOUSE_EVENT_FLAGS.MOUSEEVENTF_LEFTUP,
+[HIT-GATE] SimulateMouseAction.cs | X06 | :179: | await ExecuteBatchFile("huifu.bat", "启用鼠标");
+[HIT-GATE] SimulateMouseAction.cs | R13 | :247: | //[DllImport("user32.dll")] private static extern bool SetCursorPos(int X, int Y);
+[HIT-GATE] SimulateMouseAction.cs | X04 | :247: | //[DllImport("user32.dll")] private static extern bool SetCursorPos(int X, int Y);
+[HIT-GATE] SimulateMouseAction.cs | R13 | :248: | //[DllImport("user32.dll")] private static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
+[HIT-GATE] SimulateMouseAction.cs | X04 | :248: | //[DllImport("user32.dll")] private static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
+[INFO] SimulateMouseAction.cs | I02 | :248: | //[DllImport("user32.dll")] private static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
+[HIT-GATE] SleepAction.cs | R17 | :23: | FileName = "rundll32.exe",
+[HIT-GATE] SwitchSystemAccentColorAction.cs | R05 | :4: | using Microsoft.Win32;
+[HIT-GATE] SwitchSystemAccentColorAction.cs | R13 | :19: | [DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] SwitchSystemAccentColorAction.cs | X04 | :19: | [DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] SwitchThemeAction.cs | R05 | :4: | using Microsoft.Win32;
+[HIT-GATE] TypeContentAction.cs | R01 | :11: | using Windows.Win32;
+[HIT-GATE] TypeContentAction.cs | R01 | :12: | using Windows.Win32.Foundation;
+[HIT-GATE] TypeContentAction.cs | R02 | :38: | PInvoke.keybd_event(VK_CONTROL, 0, 0, UIntPtr.Zero);
+[INFO] TypeContentAction.cs | I01 | :38: | PInvoke.keybd_event(VK_CONTROL, 0, 0, UIntPtr.Zero);
+[HIT-GATE] TypeContentAction.cs | R02 | :40: | PInvoke.keybd_event(VK_V, 0, 0, UIntPtr.Zero);
+[INFO] TypeContentAction.cs | I01 | :40: | PInvoke.keybd_event(VK_V, 0, 0, UIntPtr.Zero);
+[HIT-GATE] TypeContentAction.cs | R02 | :42: | PInvoke.keybd_event(VK_V, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[INFO] TypeContentAction.cs | I01 | :42: | PInvoke.keybd_event(VK_V, 0, Windows.Win32.UI.Input.KeyboardAndMouse.KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+[HIT-GATE] TypeContentAction.cs | R02 | :45: | PInvoke.keybd_event(VK_CONTROL, 0,
+[INFO] TypeContentAction.cs | I01 | :45: | PInvoke.keybd_event(VK_CONTROL, 0,
+[HIT-GATE] TypeContentAction.cs | R13 | :66: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :66: | //[DllImport("user32.dll", SetLastError = true)]
+[INFO] TypeContentAction.cs | I01 | :67: | //private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+[HIT-GATE] TypeContentAction.cs | R13 | :69: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :69: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | R13 | :72: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :72: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | R13 | :75: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :75: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | R13 | :78: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :78: | //[DllImport("user32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | R13 | :81: | //[DllImport("kernel32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :81: | //[DllImport("kernel32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | R13 | :84: | //[DllImport("kernel32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :84: | //[DllImport("kernel32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | R13 | :87: | //[DllImport("kernel32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :87: | //[DllImport("kernel32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | R13 | :90: | //[DllImport("kernel32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | X04 | :90: | //[DllImport("kernel32.dll", SetLastError = true)]
+[HIT-GATE] TypeContentAction.cs | R02 | :103: | if (!PInvoke.OpenClipboard(HWND.Null))
+[HIT-GATE] TypeContentAction.cs | R02 | :108: | PInvoke.EmptyClipboard();
+[HIT-GATE] TypeContentAction.cs | R02 | :111: | var hGlobal = PInvoke.GlobalAlloc(Windows.Win32.System.Memory.GLOBAL_ALLOC_FLAGS.GMEM_MOVEABLE,
+[HIT-GATE] TypeContentAction.cs | R02 | :117: | var ptr = PInvoke.GlobalLock(hGlobal);
+[HIT-GATE] TypeContentAction.cs | R02 | :120: | PInvoke.GlobalFree(hGlobal);
+[HIT-GATE] TypeContentAction.cs | R02 | :127: | PInvoke.GlobalUnlock(hGlobal);
+[HIT-GATE] TypeContentAction.cs | R02 | :128: | PInvoke.SetClipboardData(CF_UNICODETEXT, new HANDLE(hGlobal.Value));
+[HIT-GATE] TypeContentAction.cs | R02 | :133: | PInvoke.CloseClipboard();
+[HIT-GATE] WindowOperationAction.cs | R01 | :11: | using Windows.Win32;
+[HIT-GATE] WindowOperationAction.cs | R02 | :26: | var hwnd = PInvoke.GetForegroundWindow();
+[INFO] WindowOperationAction.cs | I03 | :26: | var hwnd = PInvoke.GetForegroundWindow();
+[HIT-GATE] WindowOperationAction.cs | R02 | :38: | PInvoke.ShowWindow(hwnd, Windows.Win32.UI.WindowsAndMessaging.SHOW_WINDOW_CMD.SW_MAXIMIZE);
+[HIT-GATE] WindowOperationAction.cs | R02 | :41: | PInvoke.ShowWindow(hwnd, Windows.Win32.UI.WindowsAndMessaging.SHOW_WINDOW_CMD.SW_MINIMIZE);
+[HIT-GATE] WindowOperationAction.cs | R02 | :44: | PInvoke.ShowWindow(hwnd, Windows.Win32.UI.WindowsAndMessaging.SHOW_WINDOW_CMD.SW_RESTORE);
+[HIT-GATE] WindowOperationAction.cs | R02 | :47: | PInvoke.PostMessage(hwnd, WM_CLOSE, UIntPtr.Zero, IntPtr.Zero);
+[HIT-GATE] WindowOperationAction.cs | R13 | :69: | //[DllImport("user32.dll")]
+[HIT-GATE] WindowOperationAction.cs | X04 | :69: | //[DllImport("user32.dll")]
+[INFO] WindowOperationAction.cs | I03 | :70: | //private static extern IntPtr GetForegroundWindow();
+[HIT-GATE] WindowOperationAction.cs | R13 | :72: | //[DllImport("user32.dll")]
+[HIT-GATE] WindowOperationAction.cs | X04 | :72: | //[DllImport("user32.dll")]
+[HIT-GATE] WindowOperationAction.cs | R13 | :75: | //[DllImport("user32.dll")]
+[HIT-GATE] WindowOperationAction.cs | X04 | :75: | //[DllImport("user32.dll")]
+--- SUMMARY ---
+SourceFiles   : 62
+AssetFiles    : 0
+GateHits      : 171
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 73
+--- GATE-HIT FILES ---
+AdjustScreenBrightnessAction.cs : R07
+AdvancedShutdownAction.cs : R15,R21
+AltF4Action.cs : R01,R02
+AltTabAction.cs : R01,R02
+BlackScreenHtmlAction.cs : R01,X01,R02,R13,X04
+CameraCaptureAction.cs : X05,R19
+CancelShutdownAction.cs : R21
+ChangeWallpaperAction.cs : R05,R01,R02
+ClickSimulationAction.cs : R13,X04
+CloneDisplayAction.cs : R18
+CopyAction.cs : R15,R16
+CtrlZAction.cs : R01,R02
+DeleteAction.cs : R15
+DisableMouseAction.cs : X06
+EnableMouseAction.cs : X06
+EnterKeyAction.cs : R01,R02
+EscAction.cs : R01,R02
+ExtendDisplayAction.cs : R18
+ExternalDisplayAction.cs : R18
+F11Action.cs : R01,R02
+ImmediateRestartAction.cs : R01,R13,X04,R02,R21
+ImmediateShutdownAction.cs : R01,R13,X04,R02,R21
+InternalDisplayAction.cs : R18
+LockScreenAction.cs : R17
+MoveAction.cs : R15,R16
+RestartAsAdminAction.cs : X08,X07
+ScreenShotAction.cs : R03
+SetVolume.cs : R01
+ShowDesktopAction.cs : R01,R02
+ShutdownAction.cs : R03,R21,X03
+SimulateKeyboardAction.cs : R01,R02,R13,X04
+SimulateKeyCombinationAction.cs : R01,R02
+SimulateMouseAction.cs : R01,X06,R02,R13,X04
+SleepAction.cs : R17
+SwitchSystemAccentColorAction.cs : R05,R13,X04
+SwitchThemeAction.cs : R05
+TypeContentAction.cs : R01,R02,R13,X04
+WindowOperationAction.cs : R01,R02,R13,X04
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionFlowExecutionConfirmationAction.cs
+AutoHideMainWindowWhenOccludedAction.cs
+AutoOpenUsbDriveOnInsertAction.cs
+AutoSwitchClassIslandThemeAction.cs
+BackgroundPlayAudioAction.cs
+ClearAllNotificationsAction.cs
+DisableDeviceAction.cs : (I10)
+EnableDeviceAction.cs : (I10)
+EnableVoiceWakeAiAction.cs
+FullscreenClockAction.cs
+KillProcessAction.cs
+LoadTemporaryClassPlanAction.cs
+OpenAppSettingsAction.cs
+OpenClassSwapWindowAction.cs
+OpenProfileEditorAction.cs
+ShowAiChatDialogAction.cs
+ShowFloatingWindowAction.cs
+ShowToastAction.cs
+SwitchFloatingWindowThemeAction.cs
+ToggleFloatingWindowLayerAction.cs
+ToggleFloatingWindowProfileAction.cs
+ToggleWorkflowAction.cs
+TriggerCustomTriggerAction.cs
+WakeUpVoiceConversationAiAction.cs
+VERDICT: FAIL (gate hits present)

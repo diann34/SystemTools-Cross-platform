@@ -1,0 +1,39 @@
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : .tang\cases\stcp-cross-platform-001\evidence\p1-08-r2-selftest
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-03T20:22:41Z
+[CONDITIONAL] A_FullWrap.cs | R01 | :4: | using Windows.Win32;
+[CONDITIONAL] A_FullWrap.cs | R13 | :10: | [DllImport("psapi.dll")]
+[CONDITIONAL] A_FullWrap.cs | X04 | :10: | [DllImport("psapi.dll")]
+[CONDITIONAL] A_FullWrap.cs | R02 | :15: | PInvoke.EmptyWorkingSet(IntPtr.Zero);
+[CONDITIONAL] B_FormB_Windows.cs | R13 | :8: | [DllImport("user32.dll")]
+[CONDITIONAL] B_FormB_Windows.cs | X04 | :8: | [DllImport("user32.dll")]
+[CONDITIONAL] C_FormB_Violation_Windows.cs | R13 | :8: | [DllImport("kernel32.dll")]
+[CONDITIONAL] C_FormB_Violation_Windows.cs | X04 | :8: | [DllImport("kernel32.dll")]
+[HIT-GATE] C_FormB_Violation_Windows.cs | R13 | :12: | [DllImport("user32.dll")]
+[HIT-GATE] C_FormB_Violation_Windows.cs | X04 | :12: | [DllImport("user32.dll")]
+[INFO] C_FormB_Violation_Windows.cs | I03 | :13: | private static extern IntPtr GetForegroundWindow();
+[HIT-GATE] D_InternalGuard_Regular.cs | R13 | :8: | [DllImport("advapi32.dll")]
+[HIT-GATE] D_InternalGuard_Regular.cs | X04 | :8: | [DllImport("advapi32.dll")]
+[HIT-GATE] E_ElseBranch_Windows.cs | R13 | :9: | [DllImport("gdi32.dll")]
+[HIT-GATE] E_ElseBranch_Windows.cs | X04 | :9: | [DllImport("gdi32.dll")]
+--- SUMMARY ---
+SourceFiles   : 5
+AssetFiles    : 0
+GateHits      : 6
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 1
+ConditionalHits: 8 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+C_FormB_Violation_Windows.cs : R13,X04
+D_InternalGuard_Regular.cs : R13,X04
+E_ElseBranch_Windows.cs : R13,X04
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+A_FullWrap.cs : R01,R13,X04,R02
+B_FormB_Windows.cs : R13,X04
+C_FormB_Violation_Windows.cs : R13,X04
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+A_FullWrap.cs
+B_FormB_Windows.cs
+VERDICT: FAIL (gate hits present)

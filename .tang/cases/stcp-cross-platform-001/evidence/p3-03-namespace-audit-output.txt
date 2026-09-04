@@ -1,0 +1,257 @@
+=== p3-03 独立命名空间全量审计（兵部 · 方法独立于 p3-05 §4.1） ===
+审计起点(UTC): 2026-09-04T04:39:55Z
+--- TREE-SNAPSHOT BEFORE（本地时点 2026-09-04 12:39:55) ---
+files(all)=203 cs=163 axaml=29
+  newest: 2026-09-04 12:39:48 SettingsPage\MoreFeaturesOptionsSettingsPage.axaml
+  newest: 2026-09-04 12:39:20 SettingsPage\FloatingWindowEditorSettingsPage.axaml
+  newest: 2026-09-04 12:39:10 SettingsPage\SystemToolsSettingsViewModel.cs
+
+=== A. .cs 目录×namespace 声明交叉比对 ===
+A-result: .cs 文件=163；唯一命名空间=22；根目录 .cs=Plugin.cs
+A-inventory（命名空间 → 文件数）：
+  SystemTools.CrossPlatform = 1
+  SystemTools.CrossPlatform.Actions = 31
+  SystemTools.CrossPlatform.Config = 2
+  SystemTools.CrossPlatform.ConfigHandlers = 6
+  SystemTools.CrossPlatform.Controls = 26
+  SystemTools.CrossPlatform.Controls.Components = 12
+  SystemTools.CrossPlatform.Controls.Notifications = 1
+  SystemTools.CrossPlatform.Converters = 1
+  SystemTools.CrossPlatform.Models = 2
+  SystemTools.CrossPlatform.Models.ComponentSettings = 6
+  SystemTools.CrossPlatform.Rules = 4
+  SystemTools.CrossPlatform.Rules.Handlers = 4
+  SystemTools.CrossPlatform.Services = 22
+  SystemTools.CrossPlatform.Settings = 22
+  SystemTools.CrossPlatform.SettingsPage = 8
+  SystemTools.CrossPlatform.Shared = 1
+  SystemTools.CrossPlatform.Themes.CardTypeComponent = 1
+  SystemTools.CrossPlatform.Themes.ClassWidgets = 2
+  SystemTools.CrossPlatform.Themes.NotchStyle = 5
+  SystemTools.CrossPlatform.Triggers = 2
+  SystemTools.CrossPlatform.Version = 1
+  SystemTools.CrossPlatform.Views = 5
+
+=== B. using 面（源命名空间耦合检查，p1-05 §3.2-4） ===
+B-result: V5 源命名空间 using 命中=0（预期 0）；同程序集内部 using SystemTools.CrossPlatform（合法）count=157
+  self-using: Actions\ActionFlowExecutionConfirmationAction.cs:13
+  self-using: Actions\ActionFlowExecutionConfirmationAction.cs:14
+  self-using: Actions\AdvancedShutdownAction.cs:17
+  self-using: Actions\AdvancedShutdownAction.cs:18
+  self-using: Actions\AdvancedShutdownAction.cs:19
+  self-using: Actions\AutoHideMainWindowWhenOccludedAction.cs:8
+  self-using: Actions\AutoHideMainWindowWhenOccludedAction.cs:9
+  self-using: Actions\AutoHideMainWindowWhenOccludedAction.cs:10
+  self-using: Actions\AutoSwitchClassIslandThemeAction.cs:8
+  self-using: Actions\AutoSwitchClassIslandThemeAction.cs:9
+  self-using: Actions\AutoSwitchClassIslandThemeAction.cs:10
+  self-using: Actions\BackgroundPlayAudioAction.cs:9
+  self-using: Actions\CancelShutdownAction.cs:9
+  self-using: Actions\CancelShutdownAction.cs:10
+  self-using: Actions\ClearAllNotificationsAction.cs:6
+  self-using: Actions\ClearAllNotificationsAction.cs:7
+  self-using: Actions\CopyAction.cs:7
+  self-using: Actions\DeleteAction.cs:7
+  self-using: Actions\ImmediateRestartAction.cs:7
+  self-using: Actions\ImmediateShutdownAction.cs:7
+  self-using: Actions\KillProcessAction.cs:7
+  self-using: Actions\KillProcessAction.cs:8
+  self-using: Actions\LoadTemporaryClassPlanAction.cs:8
+  self-using: Actions\LoadTemporaryClassPlanAction.cs:9
+  self-using: Actions\LockScreenAction.cs:9
+  self-using: Actions\LockScreenAction.cs:10
+  self-using: Actions\MoveAction.cs:7
+  self-using: Actions\OpenAppSettingsAction.cs:6
+  self-using: Actions\OpenAppSettingsAction.cs:7
+  self-using: Actions\OpenClassSwapWindowAction.cs:6
+  self-using: Actions\OpenClassSwapWindowAction.cs:7
+  self-using: Actions\OpenProfileEditorAction.cs:6
+  self-using: Actions\OpenProfileEditorAction.cs:7
+  self-using: Actions\ShowAiChatDialogAction.cs:5
+  self-using: Actions\ShowFloatingWindowAction.cs:9
+  self-using: Actions\ShowFloatingWindowAction.cs:10
+  self-using: Actions\ShowFloatingWindowAction.cs:11
+  self-using: Actions\ShowToastAction.cs:7
+  self-using: Actions\ShutdownAction.cs:9
+  self-using: Actions\ShutdownAction.cs:10
+  self-using: Actions\SleepAction.cs:7
+  self-using: Actions\SwitchFloatingWindowThemeAction.cs:8
+  self-using: Actions\SwitchFloatingWindowThemeAction.cs:9
+  self-using: Actions\SwitchFloatingWindowThemeAction.cs:10
+  self-using: Actions\SwitchFloatingWindowThemeAction.cs:11
+  self-using: Actions\ToggleFloatingWindowLayerAction.cs:8
+  self-using: Actions\ToggleFloatingWindowLayerAction.cs:9
+  self-using: Actions\ToggleFloatingWindowLayerAction.cs:11
+  self-using: Actions\ToggleFloatingWindowProfileAction.cs:9
+  self-using: Actions\ToggleFloatingWindowProfileAction.cs:10
+  self-using: Actions\ToggleFloatingWindowProfileAction.cs:11
+  self-using: Actions\ToggleFloatingWindowProfileAction.cs:12
+  self-using: Actions\ToggleWorkflowAction.cs:10
+  self-using: Actions\TriggerCustomTriggerAction.cs:9
+  self-using: ConfigHandlers\FloatingWindowProfileManager.cs:6
+  self-using: ConfigHandlers\MainConfigHandler.cs:5
+  self-using: Controls\ActionFlowExecutionConfirmationSettingsControl.cs:4
+  self-using: Controls\AdvancedShutdownSettingsControl.cs:3
+  self-using: Controls\AiAttachmentDropConfirmation.axaml.cs:3
+  self-using: Controls\AiAttachmentDropConfirmation.axaml.cs:4
+  self-using: Controls\AutoHideMainWindowWhenOccludedActionSettingsControl.cs:3
+  self-using: Controls\AutoSwitchClassIslandThemeActionSettingsControl.cs:3
+  self-using: Controls\BackgroundPlayAudioSettingsControl.cs:8
+  self-using: Controls\Components\BetterCarouselContainerComponent.axaml.cs:17
+  self-using: Controls\Components\BetterCarouselContainerSettingsControl.axaml.cs:9
+  self-using: Controls\Components\ClipboardContentComponent.axaml.cs:9
+  self-using: Controls\Components\ClipboardContentSettingsControl.axaml.cs:2
+  self-using: Controls\Components\LocalQuoteComponent.axaml.cs:18
+  self-using: Controls\Components\LocalQuoteSettingsControl.axaml.cs:5
+  self-using: Controls\Components\NetworkStatusComponent.axaml.cs:12
+  self-using: Controls\Components\NetworkStatusSettingsControl.axaml.cs:2
+  self-using: Controls\Components\NextClassDisplayComponent.axaml.cs:10
+  self-using: Controls\Components\NextClassDisplaySettingsControl.axaml.cs:2
+  self-using: Controls\Components\ScrollingTextComponent.axaml.cs:13
+  self-using: Controls\Components\ScrollingTextSettingsControl.axaml.cs:2
+  self-using: Controls\CopySettingsControl.cs:8
+  self-using: Controls\DeleteSettingsControl.cs:8
+  self-using: Controls\FullscreenClockSettingsControl.cs:6
+  self-using: Controls\InTimePeriodRuleSettingsControl.cs:5
+  self-using: Controls\KillProcessSettingsControl.cs:10
+  self-using: Controls\LoadTemporaryClassPlanSettingsControl.cs:11
+  self-using: Controls\MoveSettingsControl.cs:8
+  self-using: Controls\ProcessRunningRuleSettingsControl.cs:10
+  self-using: Controls\ShortcutKeyNotificationSettingsControl.cs:3
+  self-using: Controls\ShowFloatingWindowSettingsControl.cs:5
+  self-using: Controls\ShowToastSettingsControl.cs:4
+  self-using: Controls\ShutdownSettingsControl.cs:3
+  self-using: Controls\SwitchFloatingWindowThemeSettingsControl.cs:3
+  self-using: Controls\ToggleFloatingWindowLayerSettingsControl.cs:3
+  self-using: Controls\ToggleFloatingWindowProfileSettingsControl.cs:3
+  self-using: Controls\ToggleFloatingWindowProfileSettingsControl.cs:4
+  self-using: Controls\ToggleWorkflowSettingsControl.cs:10
+  self-using: Controls\TriggerCustomTriggerSettingsControl.cs:4
+  self-using: Controls\UsingClassPlanRuleSettingsControl.cs:10
+  self-using: Controls\UsingTimeLayoutRuleSettingsControl.cs:10
+  self-using: Plugin.cs:17
+  self-using: Plugin.cs:18
+  self-using: Plugin.cs:19
+  self-using: Plugin.cs:20
+  self-using: Plugin.cs:21
+  self-using: Plugin.cs:22
+  self-using: Plugin.cs:23
+  self-using: Plugin.cs:24
+  self-using: Plugin.cs:25
+  self-using: Plugin.cs:26
+  self-using: Plugin.cs:27
+  self-using: Plugin.cs:28
+  self-using: Plugin.cs:29
+  self-using: Rules\Handlers\InTimePeriodRuleHandler.cs:5
+  self-using: Rules\Handlers\ProcessRunningRuleHandler.cs:2
+  self-using: Rules\Handlers\UsingClassPlanRuleHandler.cs:5
+  self-using: Rules\Handlers\UsingTimeLayoutRuleHandler.cs:5
+  self-using: Services\AdaptiveThemeSyncService.cs:5
+  self-using: Services\AiAttachmentDropService.cs:6
+  self-using: Services\AiAttachmentDropService.cs:7
+  self-using: Services\AiAttachmentService.cs:10
+  self-using: Services\AiChatWindowService.cs:4
+  self-using: Services\AiChatWindowService.cs:5
+  self-using: Services\AiConversationStore.cs:7
+  self-using: Services\AiConversationStore.cs:8
+  self-using: Services\ClassIslandMemoryAutoCleanupService.cs:6
+  self-using: Services\ClassIslandMemoryAutoCleanupService.cs:7
+  self-using: Services\FloatingWindowService.cs:18
+  self-using: Services\FloatingWindowService.cs:19
+  self-using: Services\MainWindowTextOcclusionService.cs:6
+  self-using: Services\OpenAiCompatibleService.cs:14
+  self-using: Services\SystemToolsNotificationProvider.cs:5
+  self-using: Services\VirtualAfterSchoolService.cs:10
+  self-using: Settings\ActionInProgressTriggerSettings.cs:3
+  self-using: Settings\FloatingWindowTriggerSettings.cs:15
+  self-using: SettingsPage\AboutSettingsPage.axaml.cs:14
+  self-using: SettingsPage\AiChatSettingsPage.axaml.cs:17
+  self-using: SettingsPage\AiChatSettingsPage.axaml.cs:18
+  self-using: SettingsPage\AiChatSettingsPage.axaml.cs:19
+  self-using: SettingsPage\AiChatSettingsPage.axaml.cs:20
+  self-using: SettingsPage\AiChatSettingsViewModel.cs:15
+  self-using: SettingsPage\AiChatSettingsViewModel.cs:16
+  self-using: SettingsPage\AiChatSettingsViewModel.cs:17
+  self-using: SettingsPage\FloatingWindowEditorSettingsPage.axaml.cs:6
+  self-using: SettingsPage\FloatingWindowEditorSettingsPage.axaml.cs:7
+  self-using: SettingsPage\MoreFeaturesOptionsSettingsPage.axaml.cs:6
+  self-using: SettingsPage\MoreFeaturesOptionsSettingsPage.axaml.cs:7
+  self-using: SettingsPage\MoreFeaturesOptionsSettingsPage.axaml.cs:8
+  self-using: SettingsPage\SystemToolsSettingsPage.axaml.cs:12
+  self-using: SettingsPage\SystemToolsSettingsPage.axaml.cs:13
+  self-using: SettingsPage\SystemToolsSettingsPage.axaml.cs:14
+  self-using: SettingsPage\SystemToolsSettingsViewModel.cs:7
+  self-using: SettingsPage\SystemToolsSettingsViewModel.cs:8
+  self-using: Shared\GlobalConstants.cs:1
+  self-using: Triggers\ActionInProgressTrigger.cs:10
+  self-using: Triggers\FloatingWindowTrigger.cs:8
+  self-using: Triggers\FloatingWindowTrigger.cs:9
+  self-using: Version\VersionCheckService.cs:8
+  self-using: Views\AiChatFloatingWindow.axaml.cs:19
+  self-using: Views\AiChatFloatingWindow.axaml.cs:20
+  self-using: Views\AiChatFloatingWindow.axaml.cs:21
+  self-using: Views\AiChatFloatingWindow.axaml.cs:22
+
+=== C. .axaml x:Class / using: / clr-namespace: 核对 ===
+C-result: x:Class 存在且配对 .axaml.cs 交叉验证通过=26；无 x:Class（资源/样式面）=3
+  no-x:Class: Themes\CardTypeComponent\Styles.axaml
+  no-x:Class: Themes\ClassWidgets\Styles.axaml
+  no-x:Class: Themes\NotchStyle\Styles.axaml
+C-external（外部程序集引用，合法）: unique=15
+  external: Controls\Components\BetterCarouselContainerComponent.axaml -> clr-namespace:System;assembly=System.Runtime
+  external: Controls\Components\BetterCarouselContainerSettingsControl.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: Controls\Components\LocalQuoteSettingsControl.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: Controls\Components\NetworkStatusSettingsControl.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: Controls\Components\NextClassDisplaySettingsControl.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: Controls\Components\ScrollingTextSettingsControl.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: SettingsPage\AboutSettingsPage.axaml -> clr-namespace:ClassIsland.Core.Controls;assembly=ClassIsland.Core
+  external: SettingsPage\AboutSettingsPage.axaml -> clr-namespace:ClassIsland.Core.Helpers;assembly=ClassIsland.Core
+  external: SettingsPage\AboutSettingsPage.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: SettingsPage\AiChatSettingsPage.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: SettingsPage\FloatingWindowEditorSettingsPage.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: SettingsPage\MoreFeaturesOptionsSettingsPage.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: SettingsPage\SystemToolsSettingsPage.axaml -> clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia
+  external: Themes\ClassWidgets\ClassWidgetsCard.axaml -> clr-namespace:ClassIsland.Core.Assists;assembly=ClassIsland.Core
+  external: Views\AiChatFloatingWindow.axaml -> clr-namespace:ClassIsland.Core.Helpers;assembly=ClassIsland.Core
+
+=== D. 独立配置命名空间核对 ===
+D1: ConfigHandlers .cs 文件数=6（预期 6）
+  ConfigHandlers/ButtonRulesetConfig.cs -> SystemTools.CrossPlatform.ConfigHandlers
+  ConfigHandlers/FloatingWindowProfile.cs -> SystemTools.CrossPlatform.ConfigHandlers
+  ConfigHandlers/FloatingWindowProfileManager.cs -> SystemTools.CrossPlatform.ConfigHandlers
+  ConfigHandlers/MainConfigData.cs -> SystemTools.CrossPlatform.ConfigHandlers
+  ConfigHandlers/MainConfigHandler.cs -> SystemTools.CrossPlatform.ConfigHandlers
+  ConfigHandlers/RowRulesetConfig.cs -> SystemTools.CrossPlatform.ConfigHandlers
+D2: JSON 名随源对照（源插件只读）+ camelCase 自一致性
+  MainConfigData.cs : source-JsonPropertyName-pairs=58 new-pairs=41
+  ButtonRulesetConfig.cs : source-JsonPropertyName-pairs=0 new-pairs=0
+    注：源 ButtonRulesetConfig.cs 无 JsonPropertyName 属性（命名策略序列化），随源性以属性名集一致性承载
+    属性名集（文本可抽取）：source=0 new=0
+  RowRulesetConfig.cs : source-JsonPropertyName-pairs=0 new-pairs=0
+    注：源 RowRulesetConfig.cs 无 JsonPropertyName 属性（命名策略序列化），随源性以属性名集一致性承载
+    属性名集（文本可抽取）：source=0 new=0
+D3: PluginConfigFolder 独立目录接线链（只读锚点）
+  Shared\GlobalConstants.cs:13 public static string? PluginConfigFolder { get; set; }
+  Plugin.cs:73 GlobalConstants.PluginConfigFolder = PluginConfigFolder;（宿主注入插件独立配置目录）
+  ConfigHandlers\MainConfigHandler.cs:16 Path.Combine(pluginConfigFolder, "Main.json")
+  ConfigHandlers\FloatingWindowProfileManager.cs:32/:38 Path.Combine(GlobalConstants.PluginConfigFolder, "FloatingWindowProfiles")
+
+=== E. 全树复跑检索（p1-05 §6-2 / p3-05 复核形态） ===
+E1: Select-String 'namespace (?!SystemTools\.CrossPlatform)' 命中=0（预期 0）
+E2: Select-String '(global )?using SystemTools.(?!CrossPlatform)' 命中=0（预期 0）
+
+--- TREE-SNAPSHOT AFTER（本地时点 2026-09-04 12:39:56) ---
+files(all)=203 cs=163 axaml=29
+  newest: 2026-09-04 12:39:48 SettingsPage\MoreFeaturesOptionsSettingsPage.axaml
+  newest: 2026-09-04 12:39:20 SettingsPage\FloatingWindowEditorSettingsPage.axaml
+  newest: 2026-09-04 12:39:10 SettingsPage\SystemToolsSettingsViewModel.cs
+
+=== SUMMARY ===
+violation count = 0
+informational count = 3
+  INFO X1-COND-DUAL-BRANCH-SAME-NS	Services\SystemShutdownMonitor.cs	decl-lines=7/103	ns=SystemTools.CrossPlatform.Services
+  INFO X1-COND-DUAL-BRANCH-SAME-NS	Views\SystemMotionPreferences.cs	decl-lines=5/51	ns=SystemTools.CrossPlatform.Views
+  INFO X2-PAIRED-BASENAME-CS	Controls\InTimePeriodRuleSettingsControl.axaml	InTimePeriodRuleSettingsControl.cs
+INDEPENDENT AUDIT RESULT: ZERO VIOLATION —— 零调整认证成立（命名空间维度零违例：无全局命名空间、无多声明块、无非前缀、无目录镜像漂移、无源命名空间 using 耦合、无 XAML 遗留引用、ConfigHandlers 命名空间/JSON 名随源一致）
+CONCLUSION: 阶段 3 独立配置/功能命名空间统一 = 零调整（与 p3-05 §4 结论独立复证一致）
+VERDICT: PASS

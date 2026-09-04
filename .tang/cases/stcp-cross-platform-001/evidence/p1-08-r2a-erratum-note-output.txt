@@ -1,0 +1,20 @@
+[R-2 勘误注记验证留档 · p1-08 刑部 · 2026-09-03 · 零扫描器改动/零产品文件改动]
+背景：兵部 p2-03 实证编译生效 guard 符号为宿主 props 注入的驼峰 Platforms_Windows（p2-03 §1.4/§6.2）；
+尚书省裁决统一采用 Platforms_Windows。本留档为刑部对 R-2 落档勘误注记的独立验证（只读）。
+
+1) 扫描器大小写语义（R-2 实际正则，-match 为 PowerShell 大小写不敏感运算符）：
+  '#if PLATFORMS_WINDOWS' -match '^#\s*if\s+PLATFORMS_WINDOWS\s*$'  => True（全大写写法亦被识别为形态 a 正向 guard）
+  '#if Platforms_Windows' -match '^#\s*if\s+PLATFORMS_WINDOWS\s*$'  => True（编译生效驼峰写法被识别）
+  '#elif Platforms_Windows' -match '^#\s*elif\s+PLATFORMS_WINDOWS\s*$' => True
+  '#if !Platforms_Windows' -match '^#\s*if\s+PLATFORMS_WINDOWS\s*$' => False（取反形态不识别为正向 guard，从严不变）
+  结论：扫描器对两种大小写写法均按正向 guard 识别（分流语义一致，无需改扫描器）；
+        全大写写法因 DefineConstants 未定义该符号，在 windows TFM 亦编译为排除 → 属死代码形态。
+
+2) 宿主 props 注入符号实拼（只读读取宿主检出）：
+  E:\ClassIsland-git-misha\CrossPlatformProps.props:37
+  <DefineConstants>$(DefineConstants);Platforms_Windows</DefineConstants>
+  （同文件 :46-48 Windows Release 注入组同用 Platforms_Windows 条件——与 p0-07 §3 所记 props:46-48 WinExe 注入缺陷同族位置）
+  结论：编译生效形态 = 驼峰 Platforms_Windows，与兵部 p2-03 §1.4/§6.2 实证一致。
+
+3) 落档动作：p0-07-quality-gates.md §11.2 增补勘误注记一行（规范写法以 Platforms_Windows 为准；
+   扫描器大小写不敏感，全大写亦被识别但属死代码形态，终检按统一口径核对）。零扫描器改动、零产品文件改动。

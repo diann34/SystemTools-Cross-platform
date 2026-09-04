@@ -1,0 +1,196 @@
+using Avalonia.Controls;
+using Avalonia.Input.Platform;
+using Avalonia.Layout;
+using Avalonia.Media;
+using ClassIsland.Core.Abstractions.Controls;
+using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using SystemTools.CrossPlatform.Settings;
+
+namespace SystemTools.CrossPlatform.Controls;
+
+public class KillProcessSettingsControl : ActionSettingsControlBase<KillProcessSettings>
+{
+    private TextBox _processNameBox;
+    private Button _viewProcessesButton;
+    private CheckBox _notifyCheckBox;
+
+    public KillProcessSettingsControl()
+    {
+        var panel = new StackPanel { Spacing = 10, Margin = new(10) };
+
+        panel.Children.Add(new TextBlock
+        {
+            Text = "退出进程",
+            FontWeight = FontWeight.Bold,
+            FontSize = 14
+        });
+
+        panel.Children.Add(new TextBlock
+        {
+            Text = "进程名:",
+            Margin = new(0, 5, 0, 0)
+        });
+
+        _processNameBox = new TextBox
+        {
+            PlaceholderText = "输入进程名（如: notepad）"
+        };
+        panel.Children.Add(_processNameBox);
+
+        var warningPanel = new StackPanel
+        {
+            Orientation = Orientation.Horizontal,
+            Spacing = 5,
+            Margin = new(0, 10, 0, 0)
+        };
+
+        warningPanel.Children.Add(new TextBlock
+        {
+            Text = "\uEA39",
+            FontFamily = new FontFamily("Segoe Fluent Icons,Segoe MDL2 Assets"),
+            FontSize = 16,
+            Foreground = Brushes.Orange
+        });
+
+        warningPanel.Children.Add(new TextBlock
+        {
+            Text = "警告：请勿终止系统重要进程 如 explorer.exe、System 等",
+            TextWrapping = TextWrapping.Wrap,
+            Foreground = Brushes.Orange,
+            FontWeight = FontWeight.Medium
+        });
+
+        panel.Children.Add(warningPanel);
+
+        _viewProcessesButton = new Button
+        {
+            Content = "查看正在运行的进程",
+            Width = 200,
+            HorizontalAlignment = HorizontalAlignment.Left,
+            Margin = new(0, 10, 0, 0)
+        };
+        _viewProcessesButton.Click += async (s, e) => await ShowProcessList();
+        panel.Children.Add(_viewProcessesButton);
+        _notifyCheckBox = new CheckBox { Content = "当执行时发出提醒" };
+        _notifyCheckBox.IsCheckedChanged += (s, e) => { Settings.NotifyOnExecute = _notifyCheckBox.IsChecked ?? false; };
+        panel.Children.Add(_notifyCheckBox);
+
+        Content = panel;
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _notifyCheckBox.IsChecked = Settings.NotifyOnExecute;
+        _processNameBox.Bind(TextBox.TextProperty, new Avalonia.Data.Binding(nameof(Settings.ProcessName))
+        {
+            Source = Settings
+        });
+    }
+
+    private async Task ShowProcessList()
+    {
+        try
+        {
+            // 降级口径适配：源实现经启动系统命令行工具获取进程列表（Windows 专属），
+            // 此处改经 BCL 进程枚举跨平台获取（进程名 + PID），失败提示语义与源一致。
+            var output = string.Join(Environment.NewLine, Process.GetProcesses()
+                .OrderBy(p => p.ProcessName, StringComparer.OrdinalIgnoreCase)
+                .Select(p => $"{p.ProcessName,-40}{p.Id,10}"));
+            await ShowProcessListWindow(output);
+        }
+        catch (Exception ex)
+        {
+            await ShowErrorDialog("获取进程列表失败", ex.Message);
+        }
+    }
+
+    private async Task ShowErrorDialog(string title, string message)
+    {
+        var topLevel = TopLevel.GetTopLevel(this);
+        if (topLevel != null)
+        {
+            var window = new Window
+            {
+                Title = title,
+                Width = 400,
+                Height = 200,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                Content = new StackPanel
+                {
+                    Spacing = 10,
+                    Margin = new(10),
+                    Children =
+                    {
+                        new TextBlock
+                        {
+                            Text = message,
+                            TextWrapping = TextWrapping.Wrap
+                        },
+                        new Button
+                        {
+                            Content = "确定",
+                            Width = 100,
+                            HorizontalAlignment = HorizontalAlignment.Center
+                        }
+                    }
+                }
+            };
+            await window.ShowDialog((Window)topLevel);
+        }
+    }
+
+    private async Task ShowProcessListWindow(string processList)
+    {
+        var window = new Window
+        {
+            Title = "正在运行的进程",
+            Width = 900,
+            Height = 600,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner
+        };
+
+        var textBox = new TextBox
+        {
+            Text = processList,
+            IsReadOnly = true,
+            TextWrapping = TextWrapping.NoWrap,
+            FontFamily = new Avalonia.Media.FontFamily("Consolas, monospace"),
+            FontSize = 12
+        };
+
+        ScrollViewer.SetVerticalScrollBarVisibility(textBox, Avalonia.Controls.Primitives.ScrollBarVisibility.Auto);
+        ScrollViewer.SetHorizontalScrollBarVisibility(textBox, Avalonia.Controls.Primitives.ScrollBarVisibility.Auto);
+
+        var copyButton = new Button
+        {
+            Content = "复制全部",
+            Width = 100,
+            HorizontalAlignment = HorizontalAlignment.Left,
+            Margin = new(10)
+        };
+        copyButton.Click += async (s, e) =>
+        {
+            if (TopLevel.GetTopLevel(this) is { } topLevel && topLevel.Clipboard != null)
+            {
+                await topLevel.Clipboard.SetTextAsync(processList);
+            }
+        };
+
+        var dockPanel = new DockPanel();
+        DockPanel.SetDock(copyButton, Dock.Top);
+        dockPanel.Children.Add(copyButton);
+        dockPanel.Children.Add(textBox);
+
+        window.Content = dockPanel;
+
+        var topLevel = TopLevel.GetTopLevel(this);
+        if (topLevel != null)
+        {
+            await window.ShowDialog((Window)topLevel);
+        }
+    }
+}

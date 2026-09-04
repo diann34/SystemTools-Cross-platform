@@ -1,0 +1,210 @@
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T03:33:58Z
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :48: | internal static bool IsShutdownCommandAvailable() => File.Exists(GetSystemToolPath("shutdown.exe"));
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R17 | :50: | internal static bool IsRundll32CommandAvailable() => File.Exists(GetSystemToolPath("rundll32.exe"));
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :56: | => Run("shutdown.exe", $"/s /t {Math.Max(0, seconds)}", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :60: | => Run("shutdown.exe", "/s /t 0", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :64: | => Run("shutdown.exe", "/g /t 0", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :68: | => Run("shutdown.exe", "/a", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R17 | :72: | => Run("rundll32.exe", "user32.dll,LockWorkStation", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R17 | :77: | => Run("rundll32.exe", "powrprof.dll,SetSuspendState 0,1,0", 1500);
+[CONDITIONAL] Services\ProcessMemoryMaintenanceNativeWindows.cs | R13 | :25: | [DllImport("psapi.dll", SetLastError = true)]
+[CONDITIONAL] Services\ProcessMemoryMaintenanceNativeWindows.cs | X04 | :25: | [DllImport("psapi.dll", SetLastError = true)]
+[CONDITIONAL] Services\SystemShutdownMonitor.cs | R03 | :5: | using System.Windows.Forms;
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P01 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P02 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P03 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P04 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P05 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P06 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[INFO] Views\SystemMotionPreferences.cs | I04 | :28: | return SystemParametersInfo(
+[CONDITIONAL] Views\SystemMotionPreferences.cs | R13 | :41: | [DllImport("user32.dll", SetLastError = false)]
+[CONDITIONAL] Views\SystemMotionPreferences.cs | X04 | :41: | [DllImport("user32.dll", SetLastError = false)]
+[INFO] Views\SystemMotionPreferences.cs | I04 | :43: | private static extern bool SystemParametersInfo(
+--- SUMMARY ---
+SourceFiles   : 168
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 6 (non-gating, listed above)
+InfoHits      : 2
+ConditionalHits: 13 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+Actions\SystemPowerCommandWindows.cs : R21,R17
+Services\ProcessMemoryMaintenanceNativeWindows.cs : R13,X04
+Services\SystemShutdownMonitor.cs : R03
+Views\SystemMotionPreferences.cs : R13,X04
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+Actions\ActionFlowExecutionConfirmationAction.cs
+Actions\AdvancedShutdownAction.cs
+Actions\AutoHideMainWindowWhenOccludedAction.cs
+Actions\AutoSwitchClassIslandThemeAction.cs
+Actions\BackgroundPlayAudioAction.cs
+Actions\CancelShutdownAction.cs
+Actions\ClearAllNotificationsAction.cs
+Actions\CopyAction.cs
+Actions\DeleteAction.cs
+Actions\FullscreenClockAction.cs
+Actions\ImmediateRestartAction.cs
+Actions\ImmediateShutdownAction.cs
+Actions\KillProcessAction.cs
+Actions\LoadTemporaryClassPlanAction.cs
+Actions\LockScreenAction.cs
+Actions\MoveAction.cs
+Actions\OpenAppSettingsAction.cs
+Actions\OpenClassSwapWindowAction.cs
+Actions\OpenProfileEditorAction.cs
+Actions\ShowAiChatDialogAction.cs
+Actions\ShowFloatingWindowAction.cs
+Actions\ShowToastAction.cs
+Actions\ShutdownAction.cs
+Actions\SleepAction.cs
+Actions\SwitchFloatingWindowThemeAction.cs
+Actions\SystemPowerCommandStub.cs
+Actions\SystemPowerCommandWindows.cs
+Actions\ToggleFloatingWindowLayerAction.cs
+Actions\ToggleFloatingWindowProfileAction.cs
+Actions\ToggleWorkflowAction.cs
+Actions\TriggerCustomTriggerAction.cs
+Config\ActionInProgressTriggerConfig.cs
+Config\FloatingWindowTriggerConfig.cs
+ConfigHandlers\ButtonRulesetConfig.cs
+ConfigHandlers\FloatingWindowProfile.cs
+ConfigHandlers\FloatingWindowProfileManager.cs
+ConfigHandlers\MainConfigData.cs
+ConfigHandlers\MainConfigHandler.cs
+ConfigHandlers\RowRulesetConfig.cs
+Controls\ActionFlowExecutionConfirmationSettingsControl.cs
+Controls\AdvancedShutdownSettingsControl.cs
+Controls\AiAttachmentDropConfirmation.axaml.cs
+Controls\AiAttachmentDropOverlay.axaml.cs
+Controls\AutoHideMainWindowWhenOccludedActionSettingsControl.cs
+Controls\AutoSwitchClassIslandThemeActionSettingsControl.cs
+Controls\BackgroundPlayAudioSettingsControl.cs
+Controls\Components\BetterCarouselContainerComponent.axaml.cs
+Controls\Components\BetterCarouselContainerSettingsControl.axaml.cs
+Controls\Components\ClipboardContentComponent.axaml.cs
+Controls\Components\ClipboardContentSettingsControl.axaml.cs
+Controls\Components\LocalQuoteComponent.axaml.cs
+Controls\Components\LocalQuoteSettingsControl.axaml.cs
+Controls\Components\NetworkStatusComponent.axaml.cs
+Controls\Components\NetworkStatusSettingsControl.axaml.cs
+Controls\Components\NextClassDisplayComponent.axaml.cs
+Controls\Components\NextClassDisplaySettingsControl.axaml.cs
+Controls\Components\ScrollingTextComponent.axaml.cs
+Controls\Components\ScrollingTextSettingsControl.axaml.cs
+Controls\CopySettingsControl.cs
+Controls\DeleteSettingsControl.cs
+Controls\FullscreenClockSettingsControl.cs
+Controls\InTimePeriodRuleSettingsControl.cs
+Controls\KillProcessSettingsControl.cs
+Controls\LoadTemporaryClassPlanSettingsControl.cs
+Controls\MoveSettingsControl.cs
+Controls\Notifications\AiReplyNotificationContent.axaml.cs
+Controls\ProcessRunningRuleSettingsControl.cs
+Controls\ShortcutKeyNotificationSettingsControl.cs
+Controls\ShowFloatingWindowSettingsControl.cs
+Controls\ShowToastSettingsControl.cs
+Controls\ShutdownSettingsControl.cs
+Controls\SwitchFloatingWindowThemeSettingsControl.cs
+Controls\ToggleFloatingWindowLayerSettingsControl.cs
+Controls\ToggleFloatingWindowProfileSettingsControl.cs
+Controls\ToggleWorkflowSettingsControl.cs
+Controls\TriggerCustomTriggerSettingsControl.cs
+Controls\UsingClassPlanRuleSettingsControl.cs
+Controls\UsingTimeLayoutRuleSettingsControl.cs
+Converters\EnumDescriptionConverter.cs
+manifest.yml
+Models\AiAttachment.cs
+Models\AiConversation.cs
+Models\ComponentSettings\BetterCarouselContainerSettings.cs
+Models\ComponentSettings\ClipboardContentSettings.cs
+Models\ComponentSettings\LocalQuoteSettings.cs
+Models\ComponentSettings\NetworkStatusSettings.cs
+Models\ComponentSettings\NextClassDisplaySettings.cs
+Models\ComponentSettings\ScrollingTextSettings.cs
+Plugin.cs
+Rules\Handlers\InTimePeriodRuleHandler.cs
+Rules\Handlers\ProcessRunningRuleHandler.cs
+Rules\Handlers\UsingClassPlanRuleHandler.cs
+Rules\Handlers\UsingTimeLayoutRuleHandler.cs
+Rules\InTimePeriodRuleSettings.cs
+Rules\ProcessRunningRuleSettings.cs
+Rules\UsingClassPlanRuleSettings.cs
+Rules\UsingTimeLayoutRuleSettings.cs
+Services\AdaptiveThemeSyncService.cs
+Services\AiAttachmentDropService.cs
+Services\AiAttachmentService.cs
+Services\AiChatOperationGate.cs
+Services\AiChatWindowService.cs
+Services\AiConversationStore.cs
+Services\AiPromptService.cs
+Services\ClassIslandActionAiService.cs
+Services\ClassIslandMemoryAutoCleanupService.cs
+Services\ClassIslandProfileAiService.cs
+Services\FloatingWindowService.cs
+Services\IOpenAiCompatibleService.cs
+Services\IProcessMemoryMaintenanceService.cs
+Services\MainWindowTextOcclusionService.cs
+Services\OpenAiCompatibleService.cs
+Services\ProcessMemoryMaintenanceNativeNoOp.cs
+Services\ProcessMemoryMaintenanceNativeWindows.cs
+Services\ProcessMemoryMaintenanceService.cs
+Services\SystemShutdownMonitor.cs
+Services\SystemToolsNotificationProvider.cs
+Services\VirtualAfterSchoolService.cs
+Settings\ActionFlowExecutionConfirmationSettings.cs
+Settings\ActionInProgressTriggerSettings.cs
+Settings\AdvancedShutdownSettings.cs
+Settings\AutoHideMainWindowWhenOccludedActionSettings.cs
+Settings\AutoSwitchClassIslandThemeActionSettings.cs
+Settings\BackgroundPlayAudioSettings.cs
+Settings\CopySettings.cs
+Settings\DeleteSettings.cs
+Settings\FloatingWindowTriggerSettings.cs
+Settings\FullscreenClockSettings.cs
+Settings\KillProcessSettings.cs
+Settings\LoadTemporaryClassPlanSettings.cs
+Settings\MoveSettings.cs
+Settings\ShortcutKeyNotificationSettings.cs
+Settings\ShowFloatingWindowSettings.cs
+Settings\ShowToastSettings.cs
+Settings\ShutdownSettings.cs
+Settings\SwitchFloatingWindowThemeSettings.cs
+Settings\ToggleFloatingWindowLayerSettings.cs
+Settings\ToggleFloatingWindowProfileSettings.cs
+Settings\ToggleWorkflowSettings.cs
+Settings\TriggerCustomTriggerSettings.cs
+SettingsPage\AboutSettingsPage.axaml.cs
+SettingsPage\AiChatSettingsPage.axaml.cs
+SettingsPage\AiChatSettingsViewModel.cs
+SettingsPage\FloatingWindowEditorSettingsPage.axaml.cs
+SettingsPage\MoreFeaturesOptionsSettingsPage.axaml.cs
+SettingsPage\PluginDebugSettingsPage.axaml.cs
+SettingsPage\SystemToolsSettingsPage.axaml.cs
+SettingsPage\SystemToolsSettingsViewModel.cs
+Shared\GlobalConstants.cs
+SystemTools.CrossPlatform.csproj
+Themes\CardTypeComponent\CardTypeComponentStyles.cs
+Themes\CardTypeComponent\manifest.yml
+Themes\ClassWidgets\ClassWidgetsCard.axaml.cs
+Themes\ClassWidgets\ClassWidgetsStyles.cs
+Themes\ClassWidgets\manifest.yml
+Themes\NotchStyle\manifest.yml
+Themes\NotchStyle\NotchClipControl.cs
+Themes\NotchStyle\NotchFrameControl.cs
+Themes\NotchStyle\NotchMaterialControl.cs
+Themes\NotchStyle\NotchShapeGeometry.cs
+Themes\NotchStyle\NotchStyleStyles.cs
+Triggers\ActionInProgressTrigger.cs
+Triggers\FloatingWindowTrigger.cs
+Version\VersionCheckService.cs
+Views\AdvancedShutdownDialog.axaml.cs
+Views\AiChatFloatingWindow.axaml.cs
+Views\ExtendShutdownDialog.axaml.cs
+Views\SystemMotionPreferences.cs : (I04)
+VERDICT: PASS (zero gate hits) [CONDITIONAL=13 R-2: verify against 06 documented items]

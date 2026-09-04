@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ClassIsland 插件": {
+      "commandName": "Executable",
+      "executablePath": "E:\\ClassIsland-git-misha\\ClassIsland.Desktop\\bin\\Debug\\net10.0-windows10.0.19041.0\\ClassIsland.Desktop.exe",
+      "commandLineArgs": "-dm -v -epp \"E:\\My Github Projects\\SystemTools-Cross-platform\\src\\SystemTools.CrossPlatform\\bin\\Debug\\net10.0-windows10.0.19041.0\"",
+      "workingDirectory": "E:\\ClassIsland-git-misha\\ClassIsland.Desktop\\bin\\Debug\\net10.0-windows10.0.19041.0"
+    }
+  }
+}

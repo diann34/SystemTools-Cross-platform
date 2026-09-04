@@ -1,0 +1,20 @@
+=== Post-build DLLs ===
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\SystemTools.CrossPlatform.dll | 2026-09-04T03:47:23.164Z | 1489408
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0\SystemTools.CrossPlatform.dll | 2026-09-04T03:47:40.890Z | 1486848
+=== Win DLL Version ===
+FileVersion=1.0.0.0 ProductVersion=1.0.0+ff0ffd786d147aa64a8a8c9e7e9ba4034677102e
+=== Linux DLL Version ===
+FileVersion=1.0.0.0 ProductVersion=1.0.0+ff0ffd786d147aa64a8a8c9e7e9ba4034677102e
+=== Full bin/Release listing ===
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\manifest.yml | 1430
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\Microsoft.Windows.SDK.NET.dll | 24877600
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\SystemTools.CrossPlatform.deps.json | 1129
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\SystemTools.CrossPlatform.dll | 1489408
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\SystemTools.CrossPlatform.pdb | 256320
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\SystemTools.CrossPlatform.runtimeconfig.json | 554
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\WinRT.Runtime.dll | 528944
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0\manifest.yml | 1430
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0\SystemTools.CrossPlatform.deps.json | 469
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0\SystemTools.CrossPlatform.dll | 1486848
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0\SystemTools.CrossPlatform.pdb | 250228
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0\SystemTools.CrossPlatform.runtimeconfig.json | 377

@@ -1,0 +1,65 @@
+入检真实 .cs：163（工程全量，排 bin/obj）；判定文件 3 个（p3-01 交付面）
+引用集（真实构建同源）：644 个，全部在盘
+Windows 语境符号集（真实构建同源）：TRACE;Platforms_Windows;RELEASE;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS10_0_19041_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS10_0_19041_0_OR_GREATER;WINDOWS10_0_18362_0_OR_GREATER;WINDOWS10_0_17763_0_OR_GREATER;WINDOWS8_0_OR_GREATER;WINDOWS7_0_OR_GREATER
+非 Windows 语境符号集（双向验证）：TRACE;RELEASE;NET;NET10_0;NETCOREAPP;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;Platforms_Linux;LINUX
+--- [A-Windows] error 按文件归组（非判定噪声单列） ---
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/AiAttachmentDropConfirmation.axaml.cs = 2
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/AiAttachmentDropOverlay.axaml.cs = 11
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/BetterCarouselContainerComponent.axaml.cs = 25
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/BetterCarouselContainerSettingsControl.axaml.cs = 3
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/ClipboardContentComponent.axaml.cs = 1
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/ClipboardContentSettingsControl.axaml.cs = 1
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/LocalQuoteComponent.axaml.cs = 37
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/LocalQuoteSettingsControl.axaml.cs = 2
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/NetworkStatusComponent.axaml.cs = 6
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/NetworkStatusSettingsControl.axaml.cs = 1
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/NextClassDisplayComponent.axaml.cs = 8
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/NextClassDisplaySettingsControl.axaml.cs = 1
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/ScrollingTextComponent.axaml.cs = 21
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Components/ScrollingTextSettingsControl.axaml.cs = 1
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/InTimePeriodRuleSettingsControl.cs = 1
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Controls/Notifications/AiReplyNotificationContent.axaml.cs = 6
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Models/ComponentSettings/BetterCarouselContainerSettings.cs = 18
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/SettingsPage/AboutSettingsPage.axaml.cs = 2
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/SettingsPage/AiChatSettingsPage.axaml.cs = 18
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/SettingsPage/AiChatSettingsViewModel.cs = 79
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/SettingsPage/FloatingWindowEditorSettingsPage.axaml.cs = 5
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/SettingsPage/PluginDebugSettingsPage.axaml.cs = 1
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/SettingsPage/SystemToolsSettingsViewModel.cs = 1
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Themes/ClassWidgets/ClassWidgetsCard.axaml.cs = 6
+ERRORS[A-Windows] src/SystemTools.CrossPlatform/Views/AiChatFloatingWindow.axaml.cs = 13
+噪声文件数（非判定文件，XAML/MVVM 生成面预期）：24；全树 error=270
+p3-02 界标段（实测，行号动态解析）：24-65, 112-138, 192-689
+p3-02 段归属 ERROR（上报不计判定）CS0246: The type or namespace name 'IRulesetService' could not be found (are you missing a using directive or an assembly reference?) :458
+PASS[A-Windows]（p3-01 判定面 error=0；stub 归属 error=0；p3-02 段归属 error=1（如实列示上报，不计判定）；全树 error=270 其余为非判定噪声；warning=1912）
+--- [B-NonWindows] error 按文件归组（非判定噪声单列） ---
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/AiAttachmentDropConfirmation.axaml.cs = 2
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/AiAttachmentDropOverlay.axaml.cs = 11
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/BetterCarouselContainerComponent.axaml.cs = 25
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/BetterCarouselContainerSettingsControl.axaml.cs = 3
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/ClipboardContentComponent.axaml.cs = 1
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/ClipboardContentSettingsControl.axaml.cs = 1
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/LocalQuoteComponent.axaml.cs = 37
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/LocalQuoteSettingsControl.axaml.cs = 2
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/NetworkStatusComponent.axaml.cs = 6
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/NetworkStatusSettingsControl.axaml.cs = 1
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/NextClassDisplayComponent.axaml.cs = 8
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/NextClassDisplaySettingsControl.axaml.cs = 1
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/ScrollingTextComponent.axaml.cs = 21
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Components/ScrollingTextSettingsControl.axaml.cs = 1
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/InTimePeriodRuleSettingsControl.cs = 1
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Controls/Notifications/AiReplyNotificationContent.axaml.cs = 6
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Models/ComponentSettings/BetterCarouselContainerSettings.cs = 18
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/SettingsPage/AboutSettingsPage.axaml.cs = 2
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/SettingsPage/AiChatSettingsPage.axaml.cs = 18
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/SettingsPage/AiChatSettingsViewModel.cs = 79
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/SettingsPage/FloatingWindowEditorSettingsPage.axaml.cs = 5
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/SettingsPage/PluginDebugSettingsPage.axaml.cs = 1
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/SettingsPage/SystemToolsSettingsViewModel.cs = 1
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Themes/ClassWidgets/ClassWidgetsCard.axaml.cs = 6
+ERRORS[B-NonWindows] src/SystemTools.CrossPlatform/Views/AiChatFloatingWindow.axaml.cs = 13
+噪声文件数（非判定文件，XAML/MVVM 生成面预期）：24；全树 error=270
+p3-02 界标段（实测，行号动态解析）：24-65, 112-138, 192-689
+p3-02 段归属 ERROR（上报不计判定）CS0246: The type or namespace name 'IRulesetService' could not be found (are you missing a using directive or an assembly reference?) :458
+PASS[B-NonWindows]（p3-01 判定面 error=0；stub 归属 error=0；p3-02 段归属 error=1（如实列示上报，不计判定）；全树 error=270 其余为非判定噪声；warning=1912）
+COMPILE OK（双向：Windows 语境 + 非 Windows 语境均 p3-01 判定 3 文件归属 error=0）—— 兵部 p3-01 交付面（SystemToolsSettingsPage.axaml.cs / MoreFeaturesOptionsSettingsPage.axaml.cs / SystemToolsSettingsViewModel.cs）语义级编译通过

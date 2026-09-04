@@ -1,0 +1,344 @@
+# p1-03 S4.2 扫描自检原始输出（兵部 p1-03 / 5 个交付落点逐一定向扫描，-Scope Source）
+# 生成时间(UTC): 2026-09-03T17:25:08Z
+# 执行方式: 在单一 pwsh 进程内以 & 直接调用 p0-07-s42-scan.ps1（嵌套 pwsh 子进程受沙箱命名管道边界限制，输出捕获改经 PowerShell 自身重定向，扫描逻辑与判定语义不变）
+# 命令模板: & .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path <落点> -Scope Source
+# 判定: 每段 VERDICT: PASS (zero gate hits) 且该次调用进程 exit=0
+
+================ TARGET: src\SystemTools.CrossPlatform\Actions  (exit=0) ================
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Actions
+Scope    : Source
+Time(UTC): 2026-09-03T17:24:26Z
+--- SUMMARY ---
+SourceFiles   : 15
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionFlowExecutionConfirmationAction.cs
+BackgroundPlayAudioAction.cs
+ClearAllNotificationsAction.cs
+FullscreenClockAction.cs
+KillProcessAction.cs
+LoadTemporaryClassPlanAction.cs
+OpenAppSettingsAction.cs
+OpenClassSwapWindowAction.cs
+OpenProfileEditorAction.cs
+ShowAiChatDialogAction.cs
+ShowToastAction.cs
+SwitchFloatingWindowThemeAction.cs
+ToggleFloatingWindowProfileAction.cs
+ToggleWorkflowAction.cs
+TriggerCustomTriggerAction.cs
+VERDICT: PASS (zero gate hits)
+
+================ TARGET: src\SystemTools.CrossPlatform\Controls  (exit=0) ================
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls
+Scope    : Source
+Time(UTC): 2026-09-03T17:24:31Z
+--- SUMMARY ---
+SourceFiles   : 26
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionFlowExecutionConfirmationSettingsControl.cs
+AiAttachmentDropConfirmation.axaml.cs
+AiAttachmentDropOverlay.axaml.cs
+BackgroundPlayAudioSettingsControl.cs
+Components\BetterCarouselContainerComponent.axaml.cs
+Components\BetterCarouselContainerSettingsControl.axaml.cs
+Components\ClipboardContentComponent.axaml.cs
+Components\ClipboardContentSettingsControl.axaml.cs
+Components\LocalQuoteComponent.axaml.cs
+Components\LocalQuoteSettingsControl.axaml.cs
+Components\NetworkStatusComponent.axaml.cs
+Components\NetworkStatusSettingsControl.axaml.cs
+Components\NextClassDisplayComponent.axaml.cs
+Components\NextClassDisplaySettingsControl.axaml.cs
+Components\ScrollingTextComponent.axaml.cs
+Components\ScrollingTextSettingsControl.axaml.cs
+FullscreenClockSettingsControl.cs
+KillProcessSettingsControl.cs
+LoadTemporaryClassPlanSettingsControl.cs
+Notifications\AiReplyNotificationContent.axaml.cs
+ShortcutKeyNotificationSettingsControl.cs
+ShowToastSettingsControl.cs
+SwitchFloatingWindowThemeSettingsControl.cs
+ToggleFloatingWindowProfileSettingsControl.cs
+ToggleWorkflowSettingsControl.cs
+TriggerCustomTriggerSettingsControl.cs
+VERDICT: PASS (zero gate hits)
+
+================ TARGET: src\SystemTools.CrossPlatform\Settings  (exit=0) ================
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Settings
+Scope    : Source
+Time(UTC): 2026-09-03T17:24:36Z
+--- SUMMARY ---
+SourceFiles   : 12
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionFlowExecutionConfirmationSettings.cs
+ActionInProgressTriggerSettings.cs
+BackgroundPlayAudioSettings.cs
+FullscreenClockSettings.cs
+KillProcessSettings.cs
+LoadTemporaryClassPlanSettings.cs
+ShortcutKeyNotificationSettings.cs
+ShowToastSettings.cs
+SwitchFloatingWindowThemeSettings.cs
+ToggleFloatingWindowProfileSettings.cs
+ToggleWorkflowSettings.cs
+TriggerCustomTriggerSettings.cs
+VERDICT: PASS (zero gate hits)
+
+================ TARGET: src\SystemTools.CrossPlatform\ConfigHandlers  (exit=0) ================
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\ConfigHandlers
+Scope    : Source
+Time(UTC): 2026-09-03T17:24:41Z
+--- SUMMARY ---
+SourceFiles   : 6
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ButtonRulesetConfig.cs
+FloatingWindowProfile.cs
+FloatingWindowProfileManager.cs
+MainConfigData.cs
+MainConfigHandler.cs
+RowRulesetConfig.cs
+VERDICT: PASS (zero gate hits)
+
+================ TARGET: src\SystemTools.CrossPlatform\Shared  (exit=0) ================
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Shared
+Scope    : Source
+Time(UTC): 2026-09-03T17:24:49Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+GlobalConstants.cs
+VERDICT: PASS (zero gate hits)
+
+SUMMARY: 5/5 落点 VERDICT: PASS，每次调用进程 exit=0，GateHits=0。
+
+================ TARGET: src\SystemTools.CrossPlatform (全树现状·补充段，含并行批次 p1-01/p1-02/p1-04 已落盘文件)  (exit=0) ================
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform
+Scope    : Source
+Time(UTC): 2026-09-03T17:26:00Z
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P01 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P02 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P03 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P04 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P05 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P06 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+--- SUMMARY ---
+SourceFiles   : 107
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 6 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+Actions\ActionFlowExecutionConfirmationAction.cs
+Actions\BackgroundPlayAudioAction.cs
+Actions\ClearAllNotificationsAction.cs
+Actions\FullscreenClockAction.cs
+Actions\KillProcessAction.cs
+Actions\LoadTemporaryClassPlanAction.cs
+Actions\OpenAppSettingsAction.cs
+Actions\OpenClassSwapWindowAction.cs
+Actions\OpenProfileEditorAction.cs
+Actions\ShowAiChatDialogAction.cs
+Actions\ShowToastAction.cs
+Actions\SwitchFloatingWindowThemeAction.cs
+Actions\ToggleFloatingWindowProfileAction.cs
+Actions\ToggleWorkflowAction.cs
+Actions\TriggerCustomTriggerAction.cs
+Config\ActionInProgressTriggerConfig.cs
+ConfigHandlers\ButtonRulesetConfig.cs
+ConfigHandlers\FloatingWindowProfile.cs
+ConfigHandlers\FloatingWindowProfileManager.cs
+ConfigHandlers\MainConfigData.cs
+ConfigHandlers\MainConfigHandler.cs
+ConfigHandlers\RowRulesetConfig.cs
+Controls\ActionFlowExecutionConfirmationSettingsControl.cs
+Controls\AiAttachmentDropConfirmation.axaml.cs
+Controls\AiAttachmentDropOverlay.axaml.cs
+Controls\BackgroundPlayAudioSettingsControl.cs
+Controls\Components\BetterCarouselContainerComponent.axaml.cs
+Controls\Components\BetterCarouselContainerSettingsControl.axaml.cs
+Controls\Components\ClipboardContentComponent.axaml.cs
+Controls\Components\ClipboardContentSettingsControl.axaml.cs
+Controls\Components\LocalQuoteComponent.axaml.cs
+Controls\Components\LocalQuoteSettingsControl.axaml.cs
+Controls\Components\NetworkStatusComponent.axaml.cs
+Controls\Components\NetworkStatusSettingsControl.axaml.cs
+Controls\Components\NextClassDisplayComponent.axaml.cs
+Controls\Components\NextClassDisplaySettingsControl.axaml.cs
+Controls\Components\ScrollingTextComponent.axaml.cs
+Controls\Components\ScrollingTextSettingsControl.axaml.cs
+Controls\FullscreenClockSettingsControl.cs
+Controls\KillProcessSettingsControl.cs
+Controls\LoadTemporaryClassPlanSettingsControl.cs
+Controls\Notifications\AiReplyNotificationContent.axaml.cs
+Controls\ShortcutKeyNotificationSettingsControl.cs
+Controls\ShowToastSettingsControl.cs
+Controls\SwitchFloatingWindowThemeSettingsControl.cs
+Controls\ToggleFloatingWindowProfileSettingsControl.cs
+Controls\ToggleWorkflowSettingsControl.cs
+Controls\TriggerCustomTriggerSettingsControl.cs
+Converters\EnumDescriptionConverter.cs
+manifest.yml
+Models\AiAttachment.cs
+Models\AiConversation.cs
+Models\ComponentSettings\BetterCarouselContainerSettings.cs
+Models\ComponentSettings\ClipboardContentSettings.cs
+Models\ComponentSettings\LocalQuoteSettings.cs
+Models\ComponentSettings\NetworkStatusSettings.cs
+Models\ComponentSettings\NextClassDisplaySettings.cs
+Models\ComponentSettings\ScrollingTextSettings.cs
+Plugin.cs
+Rules\Handlers\InTimePeriodRuleHandler.cs
+Rules\Handlers\ProcessRunningRuleHandler.cs
+Rules\Handlers\UsingClassPlanRuleHandler.cs
+Rules\Handlers\UsingTimeLayoutRuleHandler.cs
+Rules\InTimePeriodRuleSettings.cs
+Rules\ProcessRunningRuleSettings.cs
+Rules\UsingClassPlanRuleSettings.cs
+Rules\UsingTimeLayoutRuleSettings.cs
+Services\AiAttachmentDropService.cs
+Services\AiAttachmentService.cs
+Services\AiChatOperationGate.cs
+Services\AiChatWindowService.cs
+Services\AiConversationStore.cs
+Services\AiPromptService.cs
+Services\ClassIslandActionAiService.cs
+Services\ClassIslandProfileAiService.cs
+Services\IOpenAiCompatibleService.cs
+Services\OpenAiCompatibleService.cs
+Services\SystemToolsNotificationProvider.cs
+Services\VirtualAfterSchoolService.cs
+Settings\ActionFlowExecutionConfirmationSettings.cs
+Settings\ActionInProgressTriggerSettings.cs
+Settings\BackgroundPlayAudioSettings.cs
+Settings\FullscreenClockSettings.cs
+Settings\KillProcessSettings.cs
+Settings\LoadTemporaryClassPlanSettings.cs
+Settings\ShortcutKeyNotificationSettings.cs
+Settings\ShowToastSettings.cs
+Settings\SwitchFloatingWindowThemeSettings.cs
+Settings\ToggleFloatingWindowProfileSettings.cs
+Settings\ToggleWorkflowSettings.cs
+Settings\TriggerCustomTriggerSettings.cs
+Shared\GlobalConstants.cs
+SystemTools.CrossPlatform.csproj
+Themes\CardTypeComponent\CardTypeComponentStyles.cs
+Themes\CardTypeComponent\manifest.yml
+Themes\ClassWidgets\ClassWidgetsCard.axaml.cs
+Themes\ClassWidgets\ClassWidgetsStyles.cs
+Themes\ClassWidgets\manifest.yml
+Themes\NotchStyle\manifest.yml
+Themes\NotchStyle\NotchClipControl.cs
+Themes\NotchStyle\NotchFrameControl.cs
+Themes\NotchStyle\NotchMaterialControl.cs
+Themes\NotchStyle\NotchShapeGeometry.cs
+Themes\NotchStyle\NotchStyleStyles.cs
+Triggers\ActionInProgressTrigger.cs
+Version\VersionCheckService.cs
+Views\AiChatFloatingWindow.axaml.cs
+VERDICT: PASS (zero gate hits)
+
+SUMMARY-2: 全树现状扫描 VERDICT: PASS（含并行批次文件），GateHits=0。
+
+================ p1-10 修复后复跑段（2026-09-03，修复 D10 后） ================
+---- TARGET: src\SystemTools.CrossPlatform\Controls\KillProcessSettingsControl.cs（单文件直扫, exit=0） ----
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls\KillProcessSettingsControl.cs
+Scope    : Source
+Time(UTC): 2026-09-03T19:20:08Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+KillProcessSettingsControl.cs
+VERDICT: PASS (zero gate hits)
+
+---- TARGET: src\SystemTools.CrossPlatform\Controls（目录重放, exit=0） ----
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls
+Scope    : Source
+Time(UTC): 2026-09-03T19:20:08Z
+--- SUMMARY ---
+SourceFiles   : 30
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionFlowExecutionConfirmationSettingsControl.cs
+AiAttachmentDropConfirmation.axaml.cs
+AiAttachmentDropOverlay.axaml.cs
+BackgroundPlayAudioSettingsControl.cs
+Components\BetterCarouselContainerComponent.axaml.cs
+Components\BetterCarouselContainerSettingsControl.axaml.cs
+Components\ClipboardContentComponent.axaml.cs
+Components\ClipboardContentSettingsControl.axaml.cs
+Components\LocalQuoteComponent.axaml.cs
+Components\LocalQuoteSettingsControl.axaml.cs
+Components\NetworkStatusComponent.axaml.cs
+Components\NetworkStatusSettingsControl.axaml.cs
+Components\NextClassDisplayComponent.axaml.cs
+Components\NextClassDisplaySettingsControl.axaml.cs
+Components\ScrollingTextComponent.axaml.cs
+Components\ScrollingTextSettingsControl.axaml.cs
+FullscreenClockSettingsControl.cs
+InTimePeriodRuleSettingsControl.cs
+KillProcessSettingsControl.cs
+LoadTemporaryClassPlanSettingsControl.cs
+Notifications\AiReplyNotificationContent.axaml.cs
+ProcessRunningRuleSettingsControl.cs
+ShortcutKeyNotificationSettingsControl.cs
+ShowToastSettingsControl.cs
+SwitchFloatingWindowThemeSettingsControl.cs
+ToggleFloatingWindowProfileSettingsControl.cs
+ToggleWorkflowSettingsControl.cs
+TriggerCustomTriggerSettingsControl.cs
+UsingClassPlanRuleSettingsControl.cs
+UsingTimeLayoutRuleSettingsControl.cs
+VERDICT: PASS (zero gate hits)
+
+SUMMARY-3: p1-10 修复后复跑 PASS（单文件 + Controls 目录），GateHits=0。

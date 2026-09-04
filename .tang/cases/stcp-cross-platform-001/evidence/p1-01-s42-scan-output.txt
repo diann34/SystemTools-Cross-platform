@@ -1,0 +1,123 @@
+p1-01 兵部 S4.2 门禁自检原始输出（p0-07 固化扫描器，-Scope Source，四段留档）
+本文件为 **GUID 裁决落实后复跑**（尚书省裁决 p1-01 上报项：采纳新 GUID 集；6 处 ComponentInfo 首参已改写为
+规范 GUIDv5 后的最终状态复跑）。首次交付扫描（改写前）同为四段全 PASS（UTC 2026-09-03T17:08:37~39Z），
+两轮结论一致：GateHits=0 / InfoHits=0 / VERDICT: PASS / exit=0。
+重放命令（仓库根）：
+  pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Themes -Scope Source
+  pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Controls\Components -Scope Source
+  pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Models\ComponentSettings -Scope Source
+  pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Converters -Scope Source
+
+================================================================================
+=== RUN 1: -Path src\SystemTools.CrossPlatform\Themes -Scope Source ===（复跑 UTC 2026-09-03T17:26:39Z）
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Themes
+Scope    : Source
+Time(UTC): 2026-09-03T17:26:39Z
+--- SUMMARY ---
+SourceFiles   : 11
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+CardTypeComponent\CardTypeComponentStyles.cs
+CardTypeComponent\manifest.yml
+ClassWidgets\ClassWidgetsCard.axaml.cs
+ClassWidgets\ClassWidgetsStyles.cs
+ClassWidgets\manifest.yml
+NotchStyle\manifest.yml
+NotchStyle\NotchClipControl.cs
+NotchStyle\NotchFrameControl.cs
+NotchStyle\NotchMaterialControl.cs
+NotchStyle\NotchShapeGeometry.cs
+NotchStyle\NotchStyleStyles.cs
+VERDICT: PASS (zero gate hits)
+（exit code: 0）
+
+================================================================================
+=== RUN 2: -Path src\SystemTools.CrossPlatform\Controls\Components -Scope Source ===（复跑 UTC 2026-09-03T17:26:39Z）
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls\Components
+Scope    : Source
+Time(UTC): 2026-09-03T17:26:39Z
+--- SUMMARY ---
+SourceFiles   : 12
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+BetterCarouselContainerComponent.axaml.cs
+BetterCarouselContainerSettingsControl.axaml.cs
+ClipboardContentComponent.axaml.cs
+ClipboardContentSettingsControl.axaml.cs
+LocalQuoteComponent.axaml.cs
+LocalQuoteSettingsControl.axaml.cs
+NetworkStatusComponent.axaml.cs
+NetworkStatusSettingsControl.axaml.cs
+NextClassDisplayComponent.axaml.cs
+NextClassDisplaySettingsControl.axaml.cs
+ScrollingTextComponent.axaml.cs
+ScrollingTextSettingsControl.axaml.cs
+VERDICT: PASS (zero gate hits)
+（exit code: 0）
+
+================================================================================
+=== RUN 3: -Path src\SystemTools.CrossPlatform\Models\ComponentSettings -Scope Source ===（复跑 UTC 2026-09-03T17:26:40Z）
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Models\ComponentSettings
+Scope    : Source
+Time(UTC): 2026-09-03T17:26:40Z
+--- SUMMARY ---
+SourceFiles   : 6
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+BetterCarouselContainerSettings.cs
+ClipboardContentSettings.cs
+LocalQuoteSettings.cs
+NextClassDisplaySettings.cs
+NetworkStatusSettings.cs
+ScrollingTextSettings.cs
+VERDICT: PASS (zero gate hits)
+（exit code: 0）
+
+================================================================================
+=== RUN 4: -Path src\SystemTools.CrossPlatform\Converters -Scope Source ===（复跑 UTC 2026-09-03T17:26:41Z）
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Converters
+Scope    : Source
+Time(UTC): 2026-09-03T17:26:41Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+EnumDescriptionConverter.cs
+VERDICT: PASS (zero gate hits)
+（exit code: 0）
+
+================================================================================
+补充说明：
+1) 结构自检六项（GUID 复跑后重放）：V1 命名空间正则零命中、V2 裸 using SystemTools.* 零命中、
+   V3 交付文件裸 SystemTools. 引用零命中（工作区唯一直击项在 p1-02 批文件 Triggers\ActionInProgressTrigger.cs:16
+   注释，非本批交付物）、V4 旧 avares://SystemTools/ 零命中且新 avares://SystemTools.CrossPlatform/ 共 6 处、
+   V5 assembly=SystemTools" 零命中。
+2) GUID 零重合自证（裁决落实后）：新 GUID 6 值对源插件 GUID 全集（17 个唯一 GUID 形态串，
+   来自 353 个源文件 *.cs/*.axaml/*.xaml/*.yml/*.txt/*.json/*.props/*.csproj，排除 bin/obj/.git/.idea）
+   检索零命中；6 值两两互异；均为规范 GUIDv5（第 3 组首 nibble=5，第 4 组首 nibble ∈ {8,9,a,b}）。
+   旧源 GUID 与首版派生中间值在本批交付目录均零残留。
+3) 本批 .cs/.axaml/.txt/.yml 均无禁用符号提及（两轮扫描一致），无需注释清理记录。

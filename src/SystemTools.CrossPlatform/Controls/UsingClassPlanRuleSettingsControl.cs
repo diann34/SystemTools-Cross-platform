@@ -1,0 +1,114 @@
+using Avalonia.Controls;
+using Avalonia.Layout;
+using Avalonia.Threading;
+using ClassIsland.Core.Abstractions.Controls;
+using ClassIsland.Core.Abstractions.Services;
+using ClassIsland.Shared;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using SystemTools.CrossPlatform.Rules;
+
+namespace SystemTools.CrossPlatform.Controls;
+
+/// <summary>
+/// 「正在使用某课程表」规则设置控件。抽取自源插件 Controls\UsingClassPlanRuleSettingsControl.cs
+/// （命名空间按 p1-05 §3.2 目录镜像规则调整并补充规则设置类型引用，其余逐行保留源实现）。
+/// </summary>
+public class UsingClassPlanRuleSettingsControl : RuleSettingsControlBase<UsingClassPlanRuleSettings>
+{
+    private readonly IProfileService _profileService;
+    private readonly ComboBox _comboBox;
+    private readonly DispatcherTimer _refreshTimer;
+    private readonly List<Option> _options = [];
+
+    public UsingClassPlanRuleSettingsControl()
+    {
+        _profileService = IAppHost.GetService<IProfileService>();
+        var panel = new StackPanel { Spacing = 10 };
+
+        _comboBox = new ComboBox { HorizontalAlignment = HorizontalAlignment.Stretch };
+        _comboBox.SelectionChanged += (_, _) =>
+        {
+            if (_comboBox.SelectedItem is Option option)
+            {
+                Settings.ClassPlanId = option.Id.ToString();
+            }
+        };
+        panel.Children.Add(_comboBox);
+        Content = panel;
+
+        _refreshTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
+        _refreshTimer.Tick += (_, _) => RefreshItems();
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        RefreshItems();
+        _refreshTimer.Start();
+    }
+
+    protected override void OnDetachedFromVisualTree(Avalonia.VisualTreeAttachmentEventArgs e)
+    {
+        _refreshTimer.Stop();
+        base.OnDetachedFromVisualTree(e);
+    }
+
+    private void RefreshItems()
+    {
+        var next = _profileService.Profile.ClassPlans
+            .Where(x => !x.Value.IsOverlay)
+            .Select(x => new Option(x.Key, x.Value.Name))
+            .OrderBy(x => x.Name, StringComparer.CurrentCultureIgnoreCase)
+            .ToList();
+
+        if (!HasSameItems(_options, next))
+        {
+            _options.Clear();
+            _options.AddRange(next);
+            _comboBox.ItemsSource = null;
+            _comboBox.ItemsSource = _options;
+        }
+
+        SelectCurrentOrFirst();
+    }
+
+    private void SelectCurrentOrFirst()
+    {
+        if (Guid.TryParse(Settings.ClassPlanId, out var selectedId))
+        {
+            var selected = _options.FirstOrDefault(x => x.Id == selectedId);
+            if (selected != null)
+            {
+                _comboBox.SelectedItem = selected;
+                return;
+            }
+        }
+
+        var first = _options.FirstOrDefault();
+        if (first != null)
+        {
+            _comboBox.SelectedItem = first;
+            Settings.ClassPlanId = first.Id.ToString();
+        }
+    }
+
+    private static bool HasSameItems(IReadOnlyList<Option> oldList, IReadOnlyList<Option> newList)
+    {
+        if (oldList.Count != newList.Count) return false;
+        for (var i = 0; i < oldList.Count; i++)
+        {
+            if (oldList[i].Id != newList[i].Id || oldList[i].Name != newList[i].Name)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private sealed record Option(Guid Id, string Name)
+    {
+        public override string ToString() => Name;
+    }
+}

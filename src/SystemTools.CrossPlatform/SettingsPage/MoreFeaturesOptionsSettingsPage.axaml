@@ -1,0 +1,65 @@
+<ci:SettingsPageBase x:Class="SystemTools.CrossPlatform.SettingsPage.MoreFeaturesOptionsSettingsPage"
+                     xmlns="https://github.com/avaloniaui"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:ci="http://classisland.tech/schemas/xaml/core"
+                     xmlns:controls="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+                     x:CompileBindings="False">
+    <!-- 虚拟放学选项组与「自动清理 ClassIsland 内存」开关组（源页随源保留；源页其余内容——
+         自动切换 ClassIsland 主题 / 主界面遮挡文字时（探测后端不跨平台）、自动清理内存（管理员）、
+         自动播放（USB）——均已随功能移除）。显示文案随源不改。 -->
+    <ScrollViewer>
+        <StackPanel Classes="settings-container animated-intro">
+
+            <!-- 随源分组标签（ClassIsland 外观：虚拟放学触发点） -->
+            <ci:IconText Glyph="&#xE51E;" Text="ClassIsland 外观" Margin="0 2 0 4" />
+
+            <controls:FASettingsExpander IconSource="{ci:FluentIconSource &#xED55;}"
+                                         Header="虚拟放学触发点"
+                                         Description="每天到达指定的软件时间后发送一次放学事件，并在持续时间内覆盖 ClassIsland 的课程状态。">
+                <controls:FASettingsExpander.Footer>
+                    <ToggleSwitch IsChecked="{Binding Config.VirtualAfterSchoolEnabled, Mode=TwoWay}"
+                                  IsCheckedChanged="VirtualAfterSchoolToggle_OnChanged" />
+                </controls:FASettingsExpander.Footer>
+
+                <controls:FASettingsExpanderItem Content="触发时间"
+                                                 Description="使用 ClassIsland 软件时间，包括精确时间同步与软件时间偏移。">
+                    <controls:FASettingsExpanderItem.Footer>
+                        <TimePicker Width="165"
+                                    UseSeconds="True"
+                                    ClockIdentifier="24HourClock"
+                                    IsEnabled="{Binding Config.VirtualAfterSchoolEnabled}"
+                                    SelectedTime="{Binding Config.VirtualAfterSchoolTriggerTime, Mode=TwoWay}" />
+                    </controls:FASettingsExpanderItem.Footer>
+                </controls:FASettingsExpanderItem>
+
+                <controls:FASettingsExpanderItem Content="放学状态持续时间"
+                                                 Description="持续期间暂停正常课程识别；结束后自动恢复。可设置 1–7200 秒。">
+                    <controls:FASettingsExpanderItem.Footer>
+                        <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                            <NumericUpDown Width="125"
+                                           Minimum="1"
+                                           Maximum="7200"
+                                           Increment="1"
+                                           FormatString="F0"
+                                           IsEnabled="{Binding Config.VirtualAfterSchoolEnabled}"
+                                           Value="{Binding Config.VirtualAfterSchoolDurationSeconds, Mode=TwoWay}" />
+                            <TextBlock Text="秒" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </controls:FASettingsExpanderItem.Footer>
+                </controls:FASettingsExpanderItem>
+            </controls:FASettingsExpander>
+
+            <!-- 「性能」分组标签与「自动清理 ClassIsland 内存」开关组（随源） -->
+            <ci:IconText Glyph="&#xEE21;" Text="性能" Margin="0 8 0 4" />
+            <controls:FASettingsExpander IconSource="{ci:FluentIconSource &#xE97B;}"
+                                         Header="自动清理 ClassIsland 内存"
+                                         Description="当软件内存占用超过 500MB 时自动执行垃圾回收与工作集修剪。">
+                <controls:FASettingsExpander.Footer>
+                    <ToggleSwitch IsChecked="{Binding Config.AutoCleanupClassIslandMemory, Mode=TwoWay}"
+                                  IsCheckedChanged="AutoCleanupMemoryToggle_OnChanged" />
+                </controls:FASettingsExpander.Footer>
+            </controls:FASettingsExpander>
+
+        </StackPanel>
+    </ScrollViewer>
+</ci:SettingsPageBase>

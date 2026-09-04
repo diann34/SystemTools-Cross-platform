@@ -1,0 +1,58 @@
+using Avalonia.Controls;
+using ClassIsland.Core.Abstractions.Controls;
+using SystemTools.CrossPlatform.Settings;
+
+namespace SystemTools.CrossPlatform.Controls;
+
+/// <summary>
+/// 高级计时关机设置控件（p2-01 B5 附属；源锚点 E:\My Github Projects\SystemTools\Controls\AdvancedShutdownSettingsControl.cs 全 54 行随源，
+/// 仅命名空间与设置类型引用改写为 SystemTools.CrossPlatform.*）。
+/// </summary>
+public class AdvancedShutdownSettingsControl : ActionSettingsControlBase<AdvancedShutdownSettings>
+{
+    private NumericUpDown _minutesInput;
+
+    public AdvancedShutdownSettingsControl()
+    {
+        var panel = new StackPanel { Spacing = 10, Margin = new(10) };
+
+        var minutesPanel = new StackPanel
+        {
+            Orientation = Avalonia.Layout.Orientation.Horizontal,
+            Spacing = 5
+        };
+
+        minutesPanel.Children.Add(new TextBlock
+        {
+            Text = "初始倒计时（分钟）:",
+            VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center
+        });
+
+        _minutesInput = new NumericUpDown
+        {
+            Width = 120,
+            Minimum = 1,
+            Maximum = 1440,
+            Increment = 1
+        };
+        _minutesInput.ValueChanged += (_, _) => { Settings.Minutes = (int)(_minutesInput.Value ?? 2); };
+
+        minutesPanel.Children.Add(_minutesInput);
+        panel.Children.Add(minutesPanel);
+
+        panel.Children.Add(new TextBlock
+        {
+            Text = "拥有独立对话框，可已阅、取消计划、延长时间或立即关机。",
+            TextWrapping = Avalonia.Media.TextWrapping.Wrap,
+            Foreground = Avalonia.Media.Brushes.Gray
+        });
+
+        Content = panel;
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _minutesInput.Value = Settings.Minutes;
+    }
+}

@@ -1,0 +1,4 @@
+Roslyn: C:\Program Files\dotnet\sdk\10.0.302\Roslyn\bincore\Microsoft.CodeAnalysis.CSharp.dll
+parse-scope .cs files: 163
+Roslyn parse diagnostics: files=163 error=0 warning=0
+VERDICT: PASS（Roslyn 全量解析 error=0）

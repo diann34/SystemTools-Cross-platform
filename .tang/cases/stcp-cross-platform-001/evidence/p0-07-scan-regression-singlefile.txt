@@ -1,0 +1,15 @@
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Plugin.cs
+Scope    : All
+Time(UTC): 2026-09-03T17:26:59Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+Plugin.cs
+VERDICT: PASS (zero gate hits)

@@ -1,0 +1,28 @@
+<ci:RuleSettingsControlBase x:Class="SystemTools.CrossPlatform.Controls.InTimePeriodRuleSettingsControl"
+                            x:TypeArguments="rules:InTimePeriodRuleSettings"
+                            xmlns="https://github.com/avaloniaui"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:ci="http://classisland.tech/schemas/xaml/core"
+                            xmlns:controls="clr-namespace:SystemTools.CrossPlatform.Controls"
+                            xmlns:rules="clr-namespace:SystemTools.CrossPlatform.Rules">
+    <StackPanel DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=controls:InTimePeriodRuleSettingsControl}}"
+                Spacing="10"
+                Orientation="Horizontal">
+        <TextBlock Text="从" VerticalAlignment="Center" />
+        <TimePicker UseSeconds="True"
+                    ClockIdentifier="24HourClock"
+                    Margin="5,0,0,0"
+                    Loaded="StartTimePicker_OnLoaded"
+                    SelectedTimeChanged="StartTimePicker_OnSelectedTimeChanged"/>
+        <TextBlock Text="至" VerticalAlignment="Center" />
+        <TimePicker UseSeconds="True"
+                    ClockIdentifier="24HourClock"
+                    Margin="5,0,0,0"
+                    Loaded="EndTimePicker_OnLoaded"
+                    SelectedTimeChanged="EndTimePicker_OnSelectedTimeChanged"/>
+        <TextBlock Text="若起始晚于结束则按跨天处理"
+                   VerticalAlignment="Center"
+                   Foreground="Gray"
+                   FontSize="12" />
+    </StackPanel>
+</ci:RuleSettingsControlBase>

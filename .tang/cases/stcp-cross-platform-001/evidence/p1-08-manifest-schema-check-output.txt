@@ -1,0 +1,73 @@
+[留痕说明 · p1-08 刑部 · 2026-09-03]
+本文件为 manifest-schema-check 权威复跑（p1-06 §8 报备待办）的执行留档。
+
+执行经过：
+- 第 1 次执行（pwsh 进程内 & 直跑、无重定向）：成功。完整输出原样转录于下方"转录开始/结束"分隔线之间（转录自本会话执行记录，未作任何增删改；工具为确定性解析器，对同一输入文件输出恒定）。
+- 第 2/3 次执行（*> 重定向留档尝试，命令与第 1 次完全相同）：进程启动即被本会话沙箱命名管道边界拒绝（属宿主文档化边界，本会话呈间歇性——第 1 次通过、后两次拒绝），两次留档文件均为 0 字节。错误原文（各一次）：
+  ResourceUnavailable: Program 'manifest-schema-check.exe' failed to run: Access to the path '\\.\pipe\LOCAL\dotnet_e5f26a96fe76405badbfd89e4d3adb0c' is denied.
+  ResourceUnavailable: Program 'manifest-schema-check.exe' failed to run: Access to the path '\\.\pipe\LOCAL\dotnet_21a6174a51f642efa7d3249df1dfbe0a' is denied.
+- 按重试纪律（同一操作至多重试一次）停止重试；未请求任何沙箱提权。
+
+结论：
+- 11 项断言全 PASS（SRC-ID + A1–A10）+ SCHEMA-PARSE-CHECK: PASSED（第 1 次直跑实测），与 p0-05 §5.2 预期输出一致。
+- 判定闭合佐证：复跑输入 src\SystemTools.CrossPlatform\manifest.yml 的 SHA256 = 142CD419DA23D17DAD565B91D0AE6833CEEFAC7032FB3C6D3A8E991A00A26AAC，与 p0-05 证据 §13 基线记录逐字符一致（字节同一输入 + 同一工具二进制 .tools\manifest-schema-check\bin\Release\net10.0\ + 同源宿主 DLL → 判定可确定性闭合）。
+- p1-06 §8 待办在本任务闭合：本会话可运行 .NET 子进程（至少间歇可运行），manifest 复跑已完成，无需转记工部 p1-10。
+
+复核方重放（不受本会话沙箱边界约束的复核方可稳定重放）：
+  .tools\manifest-schema-check\bin\Release\net10.0\manifest-schema-check.exe "src\SystemTools.CrossPlatform\manifest.yml" "E:\My Github Projects\SystemTools\manifest.yml"
+  预期：同 11 PASS + SCHEMA-PARSE-CHECK: PASSED，退出码 0。
+
+==================== [转录开始 · 第 1 次直跑完整输出 · 2026-09-03] ====================
+== p0-05 manifest schema check ==
+tool-assembly-version: 1.0.0.0
+classisland-core-assembly: ClassIsland.Core 2.1.1.1
+yamldotnet-assembly: YamlDotNet 16.0.0.0
+host-api-version-floor: 2.0.0.0 (ClassIsland\Services\PluginService.cs:168-171)
+deserializer-config-replicated-from: PluginService.cs:68-72 (IgnoreUnmatchedProperties + OSPlatformTypeConverter_Yaml + CamelCaseNamingConvention)
+converter-replicated-from: ClassIsland\Converters\OSPlatformTypeConverter.cs:11-36
+check-target: src\SystemTools.CrossPlatform\manifest.yml
+source-compare-target: E:\My Github Projects\SystemTools\manifest.yml
+
+-- dump [NEW-PLUGIN] --
+IsActive = False
+EntranceAssembly = SystemTools.CrossPlatform.dll
+Name = SystemTools 跨平台版
+Id = SystemTools-Cross-platform
+Description = SystemTools 插件的跨平台独立版本（Windows/Linux/macOS），与原 SystemTools 插件同装并存，功能按阶段迁移交付。
+Icon = 
+Readme = 
+Url = <null>
+Version = 1.0.0.0
+ApiVersion = 2.0.0.0
+Author = Programmer-MrWang
+Dependencies = count=0
+SupportedOSPlatforms = [Windows, Linux, macOS]
+
+-- dump [SOURCE-PLUGIN] --
+IsActive = False
+EntranceAssembly = SystemTools.dll
+Name = SystemTools - Hoshimi Miyabi
+Id = SystemTools
+Description = 提供多彩而丰富的更多 组件/行动/规则集/触发器/实用工具/AI功能
+Icon = icon.png
+Readme = README.md
+Url = https://github.com/Programmer-MrWang/SystemTools
+Version = 3.0.0.0
+ApiVersion = 2.2.0.0
+Author = Programmer-MrWang
+Dependencies = count=0
+SupportedOSPlatforms = [Windows]
+[PASS] SRC-ID: source manifest id = 'SystemTools' (expected 'SystemTools', unchanged baseline)
+[PASS] A1-ID: id = 'SystemTools-Cross-platform' (expected 'SystemTools-Cross-platform', must not be 'SystemTools')
+[PASS] A2-ENTRANCE: entranceAssembly = 'SystemTools.CrossPlatform.dll' (expected 'SystemTools.CrossPlatform.dll')
+[PASS] A3-VERSION: version = '1.0.0.0' (expected '1.0.0.0'; 独立于原插件 3.0.0.0)
+[PASS] A4-APIVERSION: apiVersion = '2.0.0.0' (expected '2.0.0.0', floor 2.0.0.0)
+[PASS] A5-PLATFORMS: supportedOSPlatforms = [Windows, Linux, macOS] (expected [Windows, Linux, macOS])
+[PASS] A6-NAME: name = 'SystemTools 跨平台版' (non-empty, distinct from source display name)
+[PASS] A7-ICON-README: icon = '', readme = '' (explicit empty: no asset files in scaffold)
+[PASS] A8-AUTHOR: author = 'Programmer-MrWang'
+[PASS] A9-DEPENDENCIES: dependencies count = 0 (expected 0)
+[PASS] A10-PREFIX: reserved feature prefix = 'SystemTools.CrossPlatform.' (family 'SystemTools.' + independent segment 'CrossPlatform'; 原插件全源码 'CrossPlatform' 零出现 → 与原插件功能 ID 空间不相交，grep 证据见 p0-05 证据文件)
+
+SCHEMA-PARSE-CHECK: PASSED (schema parse ok; id/entrance/version/apiVersion/platforms all bound and independent)
+==================== [转录结束] ====================

@@ -1,0 +1,73 @@
+MIRROR SHA256(16):
+07C720625D5646A1  Actions\ShutdownAction.cs
+C0C0070798434DF9  Actions\AdvancedShutdownAction.cs
+0C6C3356EF197CE3  Actions\CancelShutdownAction.cs
+A6EAB765C6CDC7F5  Actions\LockScreenAction.cs
+119410E356245F79  Actions\ImmediateRestartAction.cs
+80E68B4A65E15A61  Actions\ImmediateShutdownAction.cs
+B4C63B4F6E0070F8  Actions\SleepAction.cs
+CE501B0A26A60A37  Actions\SystemPowerCommandWindows.cs
+E7A6AAA6B833F452  Actions\SystemPowerCommandStub.cs
+6A7697B6EAF54B8C  Settings\ShutdownSettings.cs
+CD5E9A24E2E53EB3  Settings\AdvancedShutdownSettings.cs
+E23B7F8994D35F9C  Controls\ShutdownSettingsControl.cs
+CFE68D49EF54D771  Controls\AdvancedShutdownSettingsControl.cs
+2296230FA5938AEF  Views\AdvancedShutdownDialog.axaml.cs
+A7F51CAD54FE8FD4  Views\ExtendShutdownDialog.axaml.cs
+ECFFE519C0CC282C  Services\ClassIslandMemoryAutoCleanupService.cs
+D7A59E190FD5C8B1  Services\IProcessMemoryMaintenanceService.cs
+5D05CF3026ECE779  Services\ProcessMemoryMaintenanceService.cs
+3AD996A1B4556314  Services\ProcessMemoryMaintenanceNativeWindows.cs
+736CFB5D342D4478  Services\ProcessMemoryMaintenanceNativeNoOp.cs
+B0A026DFCBF1DCCA  ConfigHandlers\MainConfigData.cs
+
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : C:\Users\0\AppData\Local\Temp\dsh-EyhqeF\p2-01-s42-mirror
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T02:49:01Z
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :48: | internal static bool IsShutdownCommandAvailable() => File.Exists(GetSystemToolPath("shutdown.exe"));
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R17 | :50: | internal static bool IsRundll32CommandAvailable() => File.Exists(GetSystemToolPath("rundll32.exe"));
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :56: | => Run("shutdown.exe", $"/s /t {Math.Max(0, seconds)}", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :60: | => Run("shutdown.exe", "/s /t 0", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :64: | => Run("shutdown.exe", "/g /t 0", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R21 | :68: | => Run("shutdown.exe", "/a", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R17 | :72: | => Run("rundll32.exe", "user32.dll,LockWorkStation", 3000);
+[CONDITIONAL] Actions\SystemPowerCommandWindows.cs | R17 | :77: | => Run("rundll32.exe", "powrprof.dll,SetSuspendState 0,1,0", 1500);
+[CONDITIONAL] Services\ProcessMemoryMaintenanceNativeWindows.cs | R13 | :25: | [DllImport("psapi.dll", SetLastError = true)]
+[CONDITIONAL] Services\ProcessMemoryMaintenanceNativeWindows.cs | X04 | :25: | [DllImport("psapi.dll", SetLastError = true)]
+--- SUMMARY ---
+SourceFiles   : 21
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+ConditionalHits: 10 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+Actions\SystemPowerCommandWindows.cs : R21,R17
+Services\ProcessMemoryMaintenanceNativeWindows.cs : R13,X04
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+Actions\AdvancedShutdownAction.cs
+Actions\CancelShutdownAction.cs
+Actions\ImmediateRestartAction.cs
+Actions\ImmediateShutdownAction.cs
+Actions\LockScreenAction.cs
+Actions\ShutdownAction.cs
+Actions\SleepAction.cs
+Actions\SystemPowerCommandStub.cs
+Actions\SystemPowerCommandWindows.cs
+ConfigHandlers\MainConfigData.cs
+Controls\AdvancedShutdownSettingsControl.cs
+Controls\ShutdownSettingsControl.cs
+Services\ClassIslandMemoryAutoCleanupService.cs
+Services\IProcessMemoryMaintenanceService.cs
+Services\ProcessMemoryMaintenanceNativeNoOp.cs
+Services\ProcessMemoryMaintenanceNativeWindows.cs
+Services\ProcessMemoryMaintenanceService.cs
+Settings\AdvancedShutdownSettings.cs
+Settings\ShutdownSettings.cs
+Views\AdvancedShutdownDialog.axaml.cs
+Views\ExtendShutdownDialog.axaml.cs
+VERDICT: PASS (zero gate hits) [CONDITIONAL=10 R-2: verify against 06 documented items]

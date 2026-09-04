@@ -1,0 +1,5 @@
+E:\ClassIsland-git-misha\ClassIsland.PluginSdk\obj\project.assets.json | 2026-09-01T07:39:08.054Z | 280691
+E:\ClassIsland-git-misha\ClassIsland.Core\obj\project.assets.json | 2026-09-02T05:11:23.902Z | 297881
+E:\ClassIsland-git-misha\ClassIsland.Platforms.Abstractions\obj\project.assets.json | 2026-09-01T07:39:07.885Z | 130394
+E:\ClassIsland-git-misha\ClassIsland.Shared\obj\project.assets.json | 2026-09-01T07:39:07.885Z | 168358
+E:\ClassIsland-git-misha\ClassIsland.Shared.IPC\obj\project.assets.json | 2026-09-01T07:39:07.885Z | 174248

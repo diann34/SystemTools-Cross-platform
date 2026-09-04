@@ -1,0 +1,21 @@
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Services\ProcessMemoryMaintenanceNativeWindows.cs
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T03:31:30Z
+[CONDITIONAL] ProcessMemoryMaintenanceNativeWindows.cs | R13 | :25: | [DllImport("psapi.dll", SetLastError = true)]
+[CONDITIONAL] ProcessMemoryMaintenanceNativeWindows.cs | X04 | :25: | [DllImport("psapi.dll", SetLastError = true)]
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+ConditionalHits: 2 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+ProcessMemoryMaintenanceNativeWindows.cs : R13,X04
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ProcessMemoryMaintenanceNativeWindows.cs
+VERDICT: PASS (zero gate hits) [CONDITIONAL=2 R-2: verify against 06 documented items]

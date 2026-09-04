@@ -1,0 +1,27 @@
+# p3-01 S4.2 批级扫描留证（TEMP 镜像 3 个交付 .cs 字节复制；扫描器 p0-07-s42-scan.ps1 R-2 版，-Scope Source）
+# 镜像文件 SHA256：
+# c5c5c19afc31d010d928910f941ec6a1bcc3340fe87c62c2fd2eacc92f6a5291  SystemToolsSettingsPage.axaml.cs
+# d0898e586ca2f49c4dec26d1e4eec59e53df415776500fa8e70b3c9757d2ebf1  MoreFeaturesOptionsSettingsPage.axaml.cs
+# b534bb097587b93261ebe7b4e9f9eeaf49a73d8ad9a495789eba4580f3d86882  SystemToolsSettingsViewModel.cs
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : C:\Users\0\AppData\Local\Temp\dsh-pi8mdM\dsh-p3-01-s42-mirror-57bdaa14
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T04:45:38Z
+--- SUMMARY ---
+SourceFiles   : 3
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+ConditionalHits: 0 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+MoreFeaturesOptionsSettingsPage.axaml.cs
+SystemToolsSettingsPage.axaml.cs
+SystemToolsSettingsViewModel.cs
+VERDICT: PASS (zero gate hits)
+scanner exit code: 0

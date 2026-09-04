@@ -1,0 +1,127 @@
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform
+Scope    : All
+Time(UTC): 2026-09-03T17:26:59Z
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P01 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P02 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P03 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P04 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P05 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P06 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+--- SUMMARY ---
+SourceFiles   : 107
+AssetFiles    : 12
+GateHits      : 0
+CommentOnly   : 6 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+Actions\ActionFlowExecutionConfirmationAction.cs
+Actions\BackgroundPlayAudioAction.cs
+Actions\ClearAllNotificationsAction.cs
+Actions\FullscreenClockAction.cs
+Actions\KillProcessAction.cs
+Actions\LoadTemporaryClassPlanAction.cs
+Actions\OpenAppSettingsAction.cs
+Actions\OpenClassSwapWindowAction.cs
+Actions\OpenProfileEditorAction.cs
+Actions\ShowAiChatDialogAction.cs
+Actions\ShowToastAction.cs
+Actions\SwitchFloatingWindowThemeAction.cs
+Actions\ToggleFloatingWindowProfileAction.cs
+Actions\ToggleWorkflowAction.cs
+Actions\TriggerCustomTriggerAction.cs
+Config\ActionInProgressTriggerConfig.cs
+ConfigHandlers\ButtonRulesetConfig.cs
+ConfigHandlers\FloatingWindowProfile.cs
+ConfigHandlers\FloatingWindowProfileManager.cs
+ConfigHandlers\MainConfigData.cs
+ConfigHandlers\MainConfigHandler.cs
+ConfigHandlers\RowRulesetConfig.cs
+Controls\ActionFlowExecutionConfirmationSettingsControl.cs
+Controls\AiAttachmentDropConfirmation.axaml.cs
+Controls\AiAttachmentDropOverlay.axaml.cs
+Controls\BackgroundPlayAudioSettingsControl.cs
+Controls\Components\BetterCarouselContainerComponent.axaml.cs
+Controls\Components\BetterCarouselContainerSettingsControl.axaml.cs
+Controls\Components\ClipboardContentComponent.axaml.cs
+Controls\Components\ClipboardContentSettingsControl.axaml.cs
+Controls\Components\LocalQuoteComponent.axaml.cs
+Controls\Components\LocalQuoteSettingsControl.axaml.cs
+Controls\Components\NetworkStatusComponent.axaml.cs
+Controls\Components\NetworkStatusSettingsControl.axaml.cs
+Controls\Components\NextClassDisplayComponent.axaml.cs
+Controls\Components\NextClassDisplaySettingsControl.axaml.cs
+Controls\Components\ScrollingTextComponent.axaml.cs
+Controls\Components\ScrollingTextSettingsControl.axaml.cs
+Controls\FullscreenClockSettingsControl.cs
+Controls\KillProcessSettingsControl.cs
+Controls\LoadTemporaryClassPlanSettingsControl.cs
+Controls\Notifications\AiReplyNotificationContent.axaml.cs
+Controls\ShortcutKeyNotificationSettingsControl.cs
+Controls\ShowToastSettingsControl.cs
+Controls\SwitchFloatingWindowThemeSettingsControl.cs
+Controls\ToggleFloatingWindowProfileSettingsControl.cs
+Controls\ToggleWorkflowSettingsControl.cs
+Controls\TriggerCustomTriggerSettingsControl.cs
+Converters\EnumDescriptionConverter.cs
+manifest.yml
+Models\AiAttachment.cs
+Models\AiConversation.cs
+Models\ComponentSettings\BetterCarouselContainerSettings.cs
+Models\ComponentSettings\ClipboardContentSettings.cs
+Models\ComponentSettings\LocalQuoteSettings.cs
+Models\ComponentSettings\NetworkStatusSettings.cs
+Models\ComponentSettings\NextClassDisplaySettings.cs
+Models\ComponentSettings\ScrollingTextSettings.cs
+Plugin.cs
+Rules\Handlers\InTimePeriodRuleHandler.cs
+Rules\Handlers\ProcessRunningRuleHandler.cs
+Rules\Handlers\UsingClassPlanRuleHandler.cs
+Rules\Handlers\UsingTimeLayoutRuleHandler.cs
+Rules\InTimePeriodRuleSettings.cs
+Rules\ProcessRunningRuleSettings.cs
+Rules\UsingClassPlanRuleSettings.cs
+Rules\UsingTimeLayoutRuleSettings.cs
+Services\AiAttachmentDropService.cs
+Services\AiAttachmentService.cs
+Services\AiChatOperationGate.cs
+Services\AiChatWindowService.cs
+Services\AiConversationStore.cs
+Services\AiPromptService.cs
+Services\ClassIslandActionAiService.cs
+Services\ClassIslandProfileAiService.cs
+Services\IOpenAiCompatibleService.cs
+Services\OpenAiCompatibleService.cs
+Services\SystemToolsNotificationProvider.cs
+Services\VirtualAfterSchoolService.cs
+Settings\ActionFlowExecutionConfirmationSettings.cs
+Settings\ActionInProgressTriggerSettings.cs
+Settings\BackgroundPlayAudioSettings.cs
+Settings\FullscreenClockSettings.cs
+Settings\KillProcessSettings.cs
+Settings\LoadTemporaryClassPlanSettings.cs
+Settings\ShortcutKeyNotificationSettings.cs
+Settings\ShowToastSettings.cs
+Settings\SwitchFloatingWindowThemeSettings.cs
+Settings\ToggleFloatingWindowProfileSettings.cs
+Settings\ToggleWorkflowSettings.cs
+Settings\TriggerCustomTriggerSettings.cs
+Shared\GlobalConstants.cs
+SystemTools.CrossPlatform.csproj
+Themes\CardTypeComponent\CardTypeComponentStyles.cs
+Themes\CardTypeComponent\manifest.yml
+Themes\ClassWidgets\ClassWidgetsCard.axaml.cs
+Themes\ClassWidgets\ClassWidgetsStyles.cs
+Themes\ClassWidgets\manifest.yml
+Themes\NotchStyle\manifest.yml
+Themes\NotchStyle\NotchClipControl.cs
+Themes\NotchStyle\NotchFrameControl.cs
+Themes\NotchStyle\NotchMaterialControl.cs
+Themes\NotchStyle\NotchShapeGeometry.cs
+Themes\NotchStyle\NotchStyleStyles.cs
+Triggers\ActionInProgressTrigger.cs
+Version\VersionCheckService.cs
+Views\AiChatFloatingWindow.axaml.cs
+VERDICT: PASS (zero gate hits)

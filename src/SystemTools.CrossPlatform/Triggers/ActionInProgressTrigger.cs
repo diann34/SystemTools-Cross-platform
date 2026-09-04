@@ -1,0 +1,98 @@
+using ClassIsland.Core.Abstractions;
+using ClassIsland.Core.Abstractions.Automation;
+using ClassIsland.Core.Attributes;
+using Microsoft.Extensions.Logging;
+using System;
+using System.IO;
+using System.Reflection;
+using System.Text.Json;
+using System.Timers;
+using SystemTools.CrossPlatform.Config;
+
+namespace SystemTools.CrossPlatform.Triggers;
+
+/// <summary>
+/// 「行动进行时」触发器。抽取自源插件 Triggers\ActionInProgressTrigger.cs（命名空间镜像、
+/// 功能 ID 按前缀规则变换、移除源侧未使用的 SystemTools.Utils 引用，其余逐行保留源实现；
+/// Timer 标识符按源语义（System.Timers，Elapsed 模式）完全限定消歧——构建期 ImplicitUsings
+/// 注入 System.Threading 与文件内 using System.Timers 并存致裸名歧义（CS0104），见批证据 §3-A13）。
+/// </summary>
+[TriggerInfo("SystemTools.CrossPlatform.ActionInProgressTrigger", "行动进行时", "\uEAB7")]
+public class ActionInProgressTrigger : TriggerBase<ActionInProgressTriggerConfig>
+{
+    private readonly ILogger<ActionInProgressTrigger> _logger;
+    private readonly string _autoJsonPath;
+    private System.Timers.Timer? _checkTimer;
+
+    public ActionInProgressTrigger(ILogger<ActionInProgressTrigger> logger)
+    {
+        _logger = logger;
+
+        var configDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        if (string.IsNullOrEmpty(configDir))
+        {
+            _logger.LogError("无法获取程序运行位置");
+            throw new FileNotFoundException($"无法获取程序运行位置");
+        }
+
+        _autoJsonPath = Path.Combine(configDir, "auto.json");
+    }
+
+    public override void Loaded()
+    {
+        _checkTimer = new System.Timers.Timer(2000);
+        _checkTimer.Elapsed += OnCheckTimer;
+        _checkTimer.Start();
+        _logger.LogDebug("行动进行时触发器已启动，每隔2秒检查 {Path}", _autoJsonPath);
+    }
+
+    public override void UnLoaded()
+    {
+        if (_checkTimer != null)
+        {
+            _checkTimer.Stop();
+            _checkTimer.Dispose();
+            _checkTimer = null;
+        }
+
+        _logger.LogDebug("行动进行时触发器已停止");
+    }
+
+    private void OnCheckTimer(object? sender, ElapsedEventArgs e)
+    {
+        try
+        {
+            if (!File.Exists(_autoJsonPath))
+                return;
+
+            if (string.IsNullOrWhiteSpace(Settings.TriggerId))
+                return;
+
+            string jsonContent;
+            lock (this)
+            {
+                jsonContent = File.ReadAllText(_autoJsonPath);
+            }
+
+            using var doc = JsonDocument.Parse(jsonContent);
+            if (!doc.RootElement.TryGetProperty("TriggerId", out var triggerIdElement))
+                return;
+
+            var triggerId = triggerIdElement.GetString();
+            if (triggerId != Settings.TriggerId)
+                return;
+
+            lock (this)
+            {
+                File.Delete(_autoJsonPath);
+            }
+
+            _logger.LogInformation("检测到匹配的行动ID: {TriggerId}，触发执行", triggerId);
+            Trigger();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "检查auto.json时发生错误");
+        }
+    }
+}

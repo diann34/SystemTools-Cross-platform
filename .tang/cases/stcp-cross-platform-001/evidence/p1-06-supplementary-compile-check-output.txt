@@ -1,0 +1,24 @@
+Roslyn: Microsoft.CodeAnalysis.CSharp, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+语法树：115（本批 9 + 全工程 105 + 1 存根）
+共享框架：C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.10
+元数据引用数：239（C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.10 + E:\My Github Projects\SystemTools-Cross-platform\.tools\manifest-schema-check\bin\Release\net10.0 + MVVM 8.2.1）
+===== 本批 9 个交付 .cs 诊断 =====
+Warning CS0169: The field 'AiChatSettingsViewModel._isGenerating' is never used [AiChatSettingsViewModel.cs:57]
+Warning CS0169: The field 'AiChatSettingsViewModel._isUpdatingAttachments' is never used [AiChatSettingsViewModel.cs:58]
+Warning CS0169: The field 'AiChatSettingsViewModel._selectedConversation' is never used [AiChatSettingsViewModel.cs:54]
+Warning CS0414: The field 'AiChatSettingsViewModel._isHistoryOpen' is assigned but its value is never used [AiChatSettingsViewModel.cs:56]
+===== 他批文件错误（预期 XAML 生成面噪声，单列不计判定）共 170 条 =====
+Error CS0117: 'FloatingWindowProfile' does not contain a definition for 'Name' [FloatingWindowProfileManager.cs:21]
+Error CS0103: The name 'InitializeComponent' does not exist in the current context [AiAttachmentDropOverlay.axaml.cs:9]
+Error CS0103: The name 'InitializeComponent' does not exist in the current context [InTimePeriodRuleSettingsControl.cs:18]
+Error CS0103: The name 'InitializeComponent' does not exist in the current context [AiReplyNotificationContent.axaml.cs:25]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:26]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:45]
+Error CS0103: The name 'ComponentDisplayDurations' does not exist in the current context [BetterCarouselContainerSettings.cs:101]
+Error CS0103: The name 'ComponentDisplayDurations' does not exist in the current context [BetterCarouselContainerSettings.cs:106]
+Error CS0103: The name 'ComponentDisplayDurations' does not exist in the current context [BetterCarouselContainerSettings.cs:112]
+Error CS0103: The name 'ComponentDisplayDurations' does not exist in the current context [BetterCarouselContainerSettings.cs:117]
+Error CS0103: The name 'RootCanvas' does not exist in the current context [AiReplyNotificationContent.axaml.cs:55]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:56]
+COMPILE OK（本批 error=0, warning=4）—— Plugin.cs + SettingsPage 8 个 .cs 语义级编译通过
+EXIT=0

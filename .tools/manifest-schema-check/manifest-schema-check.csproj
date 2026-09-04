@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <!--
+      p0-05 manifest schema 校验工具（案卷 stcp-cross-platform-001 / 礼部 interfaces-documentation）。
+      目的：在不写入宿主检出（E:\ClassIsland-git-misha）的前提下，用宿主 bin 内的实际二进制
+      （ClassIsland.Core.dll 携带 PluginManifest 模型、YamlDotNet.dll 为宿主所用解析器）
+      复刻 ClassIsland\Services\PluginService.cs:68-72 的 DeserializerBuilder 配置，
+      对新插件 manifest.yml 做与宿主运行时同构的反序列化校验。
+      - 仅 <Reference> HintPath 直接引用宿主 Desktop bin 既有 DLL（只读），不用 ProjectReference、
+        不触碰宿主检出的 obj/bin；restore/build 只写本工具目录（工作区 .tools\ 内）。
+      - 本工具不加入 SystemTools-Cross-platform.slnx（解决方案仅含新插件表面，p0-02 决议）。
+    -->
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- U3 宿主检出 Desktop bin（p0-01 快照 2.1.1.1 / a8af81ba37ec1e83588148a400a00a9d8548560d），只读引用 -->
+        <Reference Include="ClassIsland.Core">
+            <HintPath>E:\ClassIsland-git-misha\ClassIsland.Desktop\bin\Debug\net10.0-windows10.0.19041.0\ClassIsland.Core.dll</HintPath>
+            <Private>true</Private>
+        </Reference>
+        <Reference Include="CommunityToolkit.Mvvm">
+            <HintPath>E:\ClassIsland-git-misha\ClassIsland.Desktop\bin\Debug\net10.0-windows10.0.19041.0\CommunityToolkit.Mvvm.dll</HintPath>
+            <Private>true</Private>
+        </Reference>
+        <Reference Include="YamlDotNet">
+            <HintPath>E:\ClassIsland-git-misha\ClassIsland.Desktop\bin\Debug\net10.0-windows10.0.19041.0\YamlDotNet.dll</HintPath>
+            <Private>true</Private>
+        </Reference>
+    </ItemGroup>
+
+</Project>

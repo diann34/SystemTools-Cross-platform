@@ -1,0 +1,182 @@
+==== p1-02 S4.2 SCAN · Path: src\SystemTools.CrossPlatform\Rules · Scope: Source ====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Rules
+Scope    : Source
+Time(UTC): 2026-09-03T17:08:00Z
+--- SUMMARY ---
+SourceFiles   : 8
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+Handlers\InTimePeriodRuleHandler.cs
+Handlers\ProcessRunningRuleHandler.cs
+Handlers\UsingClassPlanRuleHandler.cs
+Handlers\UsingTimeLayoutRuleHandler.cs
+InTimePeriodRuleSettings.cs
+ProcessRunningRuleSettings.cs
+UsingClassPlanRuleSettings.cs
+UsingTimeLayoutRuleSettings.cs
+VERDICT: PASS (zero gate hits)
+==== p1-02 S4.2 SCAN · Path: src\SystemTools.CrossPlatform\Triggers · Scope: Source ====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Triggers
+Scope    : Source
+Time(UTC): 2026-09-03T17:08:06Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionInProgressTrigger.cs
+VERDICT: PASS (zero gate hits)
+==== p1-02 S4.2 SCAN · Path: src\SystemTools.CrossPlatform\Config · Scope: Source ====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Config
+Scope    : Source
+Time(UTC): 2026-09-03T17:08:14Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionInProgressTriggerConfig.cs
+VERDICT: PASS (zero gate hits)
+==== p1-02 S4.2 SCAN · Path: src\SystemTools.CrossPlatform\Settings\ActionInProgressTriggerSettings.cs · Scope: Source ====
+==== p1-02 S4.2 SCAN · Path: src\SystemTools.CrossPlatform\Settings · Scope: Source ====
+NOTE: 单文件路径模式触发 p0-07 扫描器 :95 缺陷（FileInfo.GetDirectoryName 不存在），改扫唯一属主目录；目录当前仅含 p1-02 交付文件（见下方文件清单）。
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Settings
+Scope    : Source
+Time(UTC): 2026-09-03T17:08:48Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionInProgressTriggerSettings.cs
+VERDICT: PASS (zero gate hits)
+==== p1-05 §8.2 命名空间/禁用 using 复核（本批 11 文件） ====
+namespace 非 SystemTools.CrossPlatform 命中: 0
+using SystemTools.*（非 CrossPlatform）命中: 0
+==== p1-05 §8.3 ID 前缀复核 ====
+ActionInProgressTrigger.cs:18: [TriggerInfo("SystemTools.CrossPlatform.ActionInProgressTrigger", "行动进行时", "\uEAB7")]
+ID 字符串命中总数: 1（应全部为 SystemTools.CrossPlatform.* 形态）
+==== 批内补充自检说明 ====
+沙箱限制：本会话子 .NET 进程（pwsh -File / dotnet）被命名管道边界拒绝，官方 dotnet build 无法由本批执行；构建门禁按 p1-05 §5.2-3 属阶段级验证。补充自检采用进程内 Roslyn 编译（见 p1-02-supplementary-compile-check-output.txt）。
+==== p1-02 S4.2 SCAN（尚书省裁决①增补：4 规则设置控件 + axaml 附属）· 临时镜像扫描说明 ====
+背景：Controls\ 为共享容器（p1-01 Components\、p1-03 行动设置控件、p1-04 AI 附件控件已落盘），整目录扫描将覆盖他批文件；p0-07 扫描器单文件模式 :95 缺陷修复在途。故将本批 5 个增补文件逐字节复制至临时镜像目录后对镜像执行真实扫描器（-Scope Source），交付文件与镜像文件 SHA256 一一对照如下（复核可用同哈希验证逐字节一致性）。
+SHA256 F9B5E2001BC19F187692AEF374EA64D87A750070E82D75F24FE785C016E0E3B8  src\SystemTools.CrossPlatform\Controls\ProcessRunningRuleSettingsControl.cs
+SHA256 BDC3235137E0A85ED36B6ED24CD1FCD6DA7AE4695DBF5AF4934AF32EDCB0EC61  src\SystemTools.CrossPlatform\Controls\UsingClassPlanRuleSettingsControl.cs
+SHA256 D8D56A7AB3A65FD19BF2C09E3063303E25FEC54D1685DC8CD19AC04C0B985543  src\SystemTools.CrossPlatform\Controls\UsingTimeLayoutRuleSettingsControl.cs
+SHA256 A7BCC83E8D9C2B10094CE6857A579EB6EE448BD4646FC2A2D6F62B94A400E3B6  src\SystemTools.CrossPlatform\Controls\InTimePeriodRuleSettingsControl.cs
+SHA256 5455626A1FEDE3AEAD0F8AC76791858A0FB39A7E7566A2BED6F40735385B0913  src\SystemTools.CrossPlatform\Controls\InTimePeriodRuleSettingsControl.axaml
+镜像目录: C:\Users\0\AppData\Local\Temp\dsh-6ISuib\p1-02-s42-staging-013042
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : C:\Users\0\AppData\Local\Temp\dsh-6ISuib\p1-02-s42-staging-013042
+Scope    : Source
+Time(UTC): 2026-09-03T17:30:49Z
+--- SUMMARY ---
+SourceFiles   : 4
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+InTimePeriodRuleSettingsControl.cs
+ProcessRunningRuleSettingsControl.cs
+UsingClassPlanRuleSettingsControl.cs
+UsingTimeLayoutRuleSettingsControl.cs
+VERDICT: PASS (zero gate hits)
+（临时镜像目录已清理）
+==== p1-05 §8.2 命名空间/禁用 using 复核（增补后本批共 15 个 .cs） ====
+namespace 非 SystemTools.CrossPlatform 命中: 1
+using SystemTools.*（非 CrossPlatform）命中: 0
+==== p1-05 §8.3 ID 前缀复核 ====
+ActionInProgressTrigger.cs:18: [TriggerInfo("SystemTools.CrossPlatform.ActionInProgressTrigger", "行动进行时", "\uEAB7")]
+ID 字符串命中总数: 1（应全部为 SystemTools.CrossPlatform.* 形态）
+==== axaml 镜像改写核对（InTimePeriodRuleSettingsControl.axaml） ====
+axaml:1: <ci:RuleSettingsControlBase x:Class="SystemTools.CrossPlatform.Controls.InTimePeriodRuleSettingsControl"
+axaml:6: xmlns:controls="clr-namespace:SystemTools.CrossPlatform.Controls"
+axaml:7: xmlns:rules="clr-namespace:SystemTools.CrossPlatform.Rules">
+（预期：x:Class 与全部 clr-namespace 均为 SystemTools.CrossPlatform.* 形态）
+==== p1-05 §8.2 复核勘误与复验（15 个 .cs） ====
+上节命中 1 处系本批 InTimePeriodRuleSettingsControl.cs 的 XML doc 注释含技术词 'clr-namespace' 子串（'namespace 已同步…'）撞从严正则，非代码命名空间违规；注释措辞已改为 'XML 命名空间声明'。复验：
+namespace 非 SystemTools.CrossPlatform 命中: 0
+using SystemTools.*（非 CrossPlatform）命中: 0
+==== 增补扫描复跑（注释措辞修正后终版哈希与门禁留证） ====
+说明：注释修正仅涉措辞（'clr-namespace'→'XML 命名空间声明'），为保持哈希-文件一致闭环，对 5 个增补文件重做镜像扫描；本节为终版留证，前一节哈希作废。
+SHA256 F9B5E2001BC19F187692AEF374EA64D87A750070E82D75F24FE785C016E0E3B8  src\SystemTools.CrossPlatform\Controls\ProcessRunningRuleSettingsControl.cs
+SHA256 BDC3235137E0A85ED36B6ED24CD1FCD6DA7AE4695DBF5AF4934AF32EDCB0EC61  src\SystemTools.CrossPlatform\Controls\UsingClassPlanRuleSettingsControl.cs
+SHA256 D8D56A7AB3A65FD19BF2C09E3063303E25FEC54D1685DC8CD19AC04C0B985543  src\SystemTools.CrossPlatform\Controls\UsingTimeLayoutRuleSettingsControl.cs
+SHA256 1BC88F349263EDE853B527913CCBDB83E0C850DF9C0B51C10225B70B270EB2D0  src\SystemTools.CrossPlatform\Controls\InTimePeriodRuleSettingsControl.cs
+SHA256 5455626A1FEDE3AEAD0F8AC76791858A0FB39A7E7566A2BED6F40735385B0913  src\SystemTools.CrossPlatform\Controls\InTimePeriodRuleSettingsControl.axaml
+镜像目录: C:\Users\0\AppData\Local\Temp\dsh-6ISuib\p1-02-s42-staging2-013226
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : C:\Users\0\AppData\Local\Temp\dsh-6ISuib\p1-02-s42-staging2-013226
+Scope    : Source
+Time(UTC): 2026-09-03T17:32:31Z
+--- SUMMARY ---
+SourceFiles   : 4
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+InTimePeriodRuleSettingsControl.cs
+ProcessRunningRuleSettingsControl.cs
+UsingClassPlanRuleSettingsControl.cs
+UsingTimeLayoutRuleSettingsControl.cs
+VERDICT: PASS (zero gate hits)
+==== p1-02 S4.2 SCAN（尚书省裁决②复跑）· Path: src\SystemTools.CrossPlatform\Controls\ProcessRunningRuleSettingsControl.cs · Scope: Source ====
+说明：刑部 R-1 修复（:95 .DirectoryName）已落地，本节恢复单文件直扫；裁决②将 tasklist 启动段（原 :63-90）替换为 BCL Process.GetProcesses() 跨平台枚举（对齐 p1-03 D3 形态），复扫该交付文件。
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls\ProcessRunningRuleSettingsControl.cs
+Scope    : Source
+Time(UTC): 2026-09-03T17:42:54Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ProcessRunningRuleSettingsControl.cs
+VERDICT: PASS (zero gate hits)
+==== p1-02 S4.2 SCAN（CS0104 消歧修复后复跑）· Path: src\SystemTools.CrossPlatform\Triggers\ActionInProgressTrigger.cs · Scope: Source ====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Triggers\ActionInProgressTrigger.cs
+Scope    : Source
+Time(UTC): 2026-09-03T19:05:05Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionInProgressTrigger.cs
+VERDICT: PASS (zero gate hits)

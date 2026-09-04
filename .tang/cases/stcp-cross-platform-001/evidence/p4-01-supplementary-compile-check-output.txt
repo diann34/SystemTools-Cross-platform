@@ -1,0 +1,27 @@
+Roslyn: Microsoft.CodeAnalysis.CSharp, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+共享框架：C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.10
+元数据引用数：286（fx + tools + desktop-ref(C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\10.0.10\ref\net10.0) + MVVM 8.2.1）；System.Windows.Forms 引用：C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\10.0.10\ref\net10.0\System.Windows.Forms.dll
+===== Round W（define: Platforms_Windows）—— 本批 2 个裁量触达文件诊断 =====
+===== 他文件错误（预期 XAML 生成面噪声，单列不入判定）共 185 条 =====
+Error CS0246: The type or namespace name 'Task' could not be found (are you missing a using directive or an assembly reference?) [MainWindowTextOcclusionService.cs:131]
+Error CS0103: The name 'InitializeComponent' does not exist in the current context [AiAttachmentDropOverlay.axaml.cs:9]
+Error CS0103: The name 'InitializeComponent' does not exist in the current context [AiReplyNotificationContent.axaml.cs:25]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:26]
+Error CS0103: The name 'InitializeComponent' does not exist in the current context [AiAttachmentDropConfirmation.axaml.cs:22]
+Error CS0103: The name 'RejectedItemsWarning' does not exist in the current context [AiAttachmentDropConfirmation.axaml.cs:24]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:45]
+Error CS0103: The name 'ValidIcon' does not exist in the current context [AiAttachmentDropOverlay.axaml.cs:22]
+COMPILE OK（Round W：本批 error=0, warning=0）
+===== Round N（define: Platforms_Linux）—— 本批 2 个裁量触达文件诊断 =====
+===== 他文件错误（预期 XAML 生成面噪声，单列不入判定）共 185 条 =====
+Error CS0246: The type or namespace name 'Task' could not be found (are you missing a using directive or an assembly reference?) [MainWindowTextOcclusionService.cs:131]
+Error CS0103: The name 'InitializeComponent' does not exist in the current context [AiReplyNotificationContent.axaml.cs:25]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:26]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:45]
+Error CS0103: The name 'RootCanvas' does not exist in the current context [AiReplyNotificationContent.axaml.cs:55]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:56]
+Error CS0103: The name 'ReplyText' does not exist in the current context [AiReplyNotificationContent.axaml.cs:64]
+Error CS0103: The name 'InitializeComponent' does not exist in the current context [ScrollingTextSettingsControl.axaml.cs:13]
+COMPILE OK（Round N：本批 error=0, warning=0）
+
+COMPILE OK（Round-W + Round-N 双向符号 error=0）—— p4-01 两个裁量触达文件跨分支语义编译通过

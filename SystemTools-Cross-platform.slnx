@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SystemTools.CrossPlatform/SystemTools.CrossPlatform.csproj" />
+  </Folder>
+</Solution>

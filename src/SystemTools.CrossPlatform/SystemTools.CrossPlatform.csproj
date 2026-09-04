@@ -1,0 +1,115 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <!-- 单一 net10.0 目标框架：同一份插件程序集（同一 cipx）可安装到 Windows / Linux / macOS
+             的 ClassIsland 并直接运行。平台差异一律在运行期用 OperatingSystem.IsWindows() 等
+             判断（SystemShutdownMonitor / SystemPowerCommand / ProcessMemoryMaintenance /
+             SystemMotionPreferences 均已收敛为运行期分派），不再使用 #if Platforms_* 条件编译，
+             也不再按构建机 OS 自动升级 TFM（net10.0-windows10.0.19041.0 / net10.0-macos*）。 -->
+        <TargetFramework>net10.0</TargetFramework>
+        <RootNamespace>SystemTools.CrossPlatform</RootNamespace>
+        <TargetName>SystemTools.CrossPlatform</TargetName>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+        <Configurations>Debug;Release;Debug_MSIX;Release_MSIX</Configurations>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+        <CreateCipx>true</CreateCipx>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ClassIslandSourceRoot Condition="'$(ClassIslandSourceRoot)' == ''">E:\ClassIsland-git-misha</ClassIslandSourceRoot>
+        <!-- NuGet 是默认模式（宿主 ClassIsland.PluginSdk 2.1.1.1 为 net10.0 纯框架，兼容单一 TFM 产物）；
+             IDE 设计时构建不依赖宿主源码检出的 git 状态。 -->
+        <UseLocalClassIslandSdk Condition="'$(UseLocalClassIslandSdk)' == ''">false</UseLocalClassIslandSdk>
+        <ClassIslandPluginSdkVersion Condition="'$(ClassIslandPluginSdkVersion)' == ''">2.1.1.1</ClassIslandPluginSdkVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ClassIsland.PluginSdk"
+                          Version="$(ClassIslandPluginSdkVersion)"
+                          Condition="'$(UseLocalClassIslandSdk)' != 'true' Or !Exists('$(ClassIslandSourceRoot)\ClassIsland.PluginSdk\ClassIsland.PluginSdk.csproj')">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+
+        <ProjectReference Include="$(ClassIslandSourceRoot)\ClassIsland.PluginSdk\ClassIsland.PluginSdk.csproj"
+                          Condition="'$(UseLocalClassIslandSdk)' == 'true' And Exists('$(ClassIslandSourceRoot)\ClassIsland.PluginSdk\ClassIsland.PluginSdk.csproj')">
+            <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+            <Private>false</Private>
+            <GlobalPropertiesToRemove>CreateCipx</GlobalPropertiesToRemove>
+        </ProjectReference>
+
+        <!-- 保持 IDE 可直接看到编译期依赖；运行时全部由宿主提供，不随 cipx 打包。 -->
+        <PackageReference Include="Avalonia" Version="12.1.1">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="Avalonia.Desktop" Version="12.1.1">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="Avalonia.Skia" Version="12.1.1">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="FluentAvaloniaUI" Version="3.0.0">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.10">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.10">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.10">
+            <ExcludeAssets>runtime;native</ExcludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="manifest.yml">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="icon.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="title.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+
+        <AvaloniaResource Include="Themes\CardTypeComponent\Theme.axaml.txt" />
+        <AvaloniaResource Include="Themes\ClassWidgets\Theme.axaml.txt" />
+        <AvaloniaResource Include="Themes\NotchStyle\Theme.axaml.txt" />
+        <AvaloniaResource Include="Themes\ClassWidgets\上课.png" />
+        <AvaloniaResource Include="Themes\ClassWidgets\课间休息.png" />
+        <AvaloniaResource Include="Themes\ClassWidgets\无课程.png" />
+        <AvaloniaResource Remove="cipx\**" />
+        <None Remove="cipx\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaXaml Remove="cipx\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="cipx\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="cipx\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Remove="cipx\**" />
+    </ItemGroup>
+
+    <Target Name="VerifyClassIslandSource"
+            BeforeTargets="PrepareForBuild"
+            Condition="'$(UseLocalClassIslandSdk)' == 'true'">
+        <Error Condition="!Exists('$(ClassIslandSourceRoot)\ClassIsland.PluginSdk\ClassIsland.PluginSdk.csproj')"
+               Text="ClassIsland source checkout was not found at '$(ClassIslandSourceRoot)'. Set ClassIslandSourceRoot to a valid checkout or build with UseLocalClassIslandSdk=false." />
+    </Target>
+
+    <Import Project="$(ClassIslandSourceRoot)\ClassIsland.PluginSdk\ClassIsland.PluginSdk.targets"
+            Condition="'$(UseLocalClassIslandSdk)' == 'true' And Exists('$(ClassIslandSourceRoot)\ClassIsland.PluginSdk\ClassIsland.PluginSdk.targets')" />
+</Project>

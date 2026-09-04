@@ -1,0 +1,15 @@
+=== p0-05 manifest 校验工具复跑记录（p1-06 / 2026-09-03 UTC） ===
+
+命令（p0-05 §5.3 复放口径）:
+  .tools\manifest-schema-check\bin\Release\net10.0\manifest-schema-check.exe "src\SystemTools.CrossPlatform\manifest.yml" "E:\My Github Projects\SystemTools\manifest.yml"
+
+结果: 受阻 —— 会话沙箱禁止 .NET 子进程（本会话既知命名管道边界，与 p1-02 报告同源）:
+  Access to the path '\\.\pipe\LOCAL\dotnet_...' is denied.
+  Program 'manifest-schema-check.exe' failed to run.
+
+替代不变性证据（字节级）:
+  当前 manifest.yml SHA256 = 142CD419DA23D17DAD565B91D0AE6833CEEFAC7032FB3C6D3A8E991A00A26AAC
+  p0-05 证据文件 §13 基线记录 = 142CD419…AAC（前缀一致；该基线即校验工具最近一次
+  判 11 PASS + SCHEMA-PARSE-CHECK: PASSED 的输入）→ 本批写入前后 manifest 字节同一，零改动成立。
+
+处置: 工具权威复跑移交刑部 p1-08（在允许 dotnet 子进程的会话中执行，全树终检属其权限范围）。

@@ -1,0 +1,13 @@
+=== src newest 10 files (excluding bin/obj) ===
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\ConfigHandlers\MainConfigData.cs | 2026-09-04T03:33:47.466Z | 20411
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Services\ProcessMemoryMaintenanceService.cs | 2026-09-04T03:33:47.450Z | 1107
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Plugin.cs | 2026-09-04T03:17:15.582Z | 42064
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Services\ProcessMemoryMaintenanceNativeNoOp.cs | 2026-09-04T02:48:05.945Z | 1197
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Actions\SystemPowerCommandStub.cs | 2026-09-04T02:48:05.929Z | 1860
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Services\ProcessMemoryMaintenanceNativeWindows.cs | 2026-09-04T02:47:40.748Z | 2348
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Actions\SystemPowerCommandWindows.cs | 2026-09-04T02:47:40.730Z | 5698
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Settings\FloatingWindowTriggerSettings.cs | 2026-09-04T02:27:39.732Z | 7286
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Services\ClassIslandMemoryAutoCleanupService.cs | 2026-09-04T02:22:18.999Z | 5756
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\Services\IProcessMemoryMaintenanceService.cs | 2026-09-04T02:21:50.887Z | 1143
+=== csproj mtime ===
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\SystemTools.CrossPlatform.csproj | 2026-09-03T18:55:37.981Z

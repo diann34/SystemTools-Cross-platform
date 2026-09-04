@@ -1,0 +1,5 @@
+=== Baseline DLLs ===
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0-windows10.0.19041.0\SystemTools.CrossPlatform.dll | 2026-09-03T19:36:54.648Z | 1349120
+E:\My Github Projects\SystemTools-Cross-platform\src\SystemTools.CrossPlatform\bin\Release\net10.0\SystemTools.CrossPlatform.dll | 2026-09-03T19:37:14.363Z | 1349120
+=== Win DLL Version ===
+FileVersion=1.0.0.0 ProductVersion=1.0.0+ff0ffd786d147aa64a8a8c9e7e9ba4034677102e

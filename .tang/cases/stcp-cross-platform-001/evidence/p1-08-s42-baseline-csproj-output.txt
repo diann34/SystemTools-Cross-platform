@@ -1,0 +1,21 @@
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\SystemTools.CrossPlatform.csproj
+Scope    : All
+Time(UTC): 2026-09-03T18:43:11Z
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P01 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P02 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P03 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P04 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P05 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+[COMMENT-ONLY] SystemTools.CrossPlatform.csproj | P06 | :79: | S4.2 禁用包（CsWin32、System.Management、System.Speech、DlibDotNet、OpenCvSharp4*、NAudio.Wasapi、
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 6 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+SystemTools.CrossPlatform.csproj
+VERDICT: PASS (zero gate hits)

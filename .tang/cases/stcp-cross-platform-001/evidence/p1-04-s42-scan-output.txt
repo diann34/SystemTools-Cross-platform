@@ -1,0 +1,245 @@
+# p1-04 S4.2 扫描自检输出（兵部 application-code / assignment p1-04 / 案卷 stcp-cross-platform-001）
+# 执行时间: 2026-09-04 01:28:03 +08:00
+# 命令模板: pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path <本批交付路径> -Scope Source
+# 预期：每个目标 GateHits=0，VERDICT: PASS，exit=0
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Services -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Services
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:04Z
+--- SUMMARY ---
+SourceFiles   : 12
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+AiAttachmentDropService.cs
+AiAttachmentService.cs
+AiChatOperationGate.cs
+AiChatWindowService.cs
+AiConversationStore.cs
+AiPromptService.cs
+ClassIslandActionAiService.cs
+ClassIslandProfileAiService.cs
+IOpenAiCompatibleService.cs
+OpenAiCompatibleService.cs
+SystemToolsNotificationProvider.cs
+VirtualAfterSchoolService.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Version -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Version
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:04Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+VersionCheckService.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Views -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Views
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:04Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+AiChatFloatingWindow.axaml.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Controls\Notifications -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls\Notifications
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:05Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+AiReplyNotificationContent.axaml.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Controls\AiAttachmentDropOverlay.axaml -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls\AiAttachmentDropOverlay.axaml
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:05Z
+--- SUMMARY ---
+SourceFiles   : 0
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+(none)
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Controls\AiAttachmentDropOverlay.axaml.cs -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls\AiAttachmentDropOverlay.axaml.cs
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:05Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+AiAttachmentDropOverlay.axaml.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Controls\AiAttachmentDropConfirmation.axaml -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls\AiAttachmentDropConfirmation.axaml
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:06Z
+--- SUMMARY ---
+SourceFiles   : 0
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+(none)
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Controls\AiAttachmentDropConfirmation.axaml.cs -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls\AiAttachmentDropConfirmation.axaml.cs
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:06Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+AiAttachmentDropConfirmation.axaml.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Models\AiAttachment.cs -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Models\AiAttachment.cs
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:06Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+AiAttachment.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Models\AiConversation.cs -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Models\AiConversation.cs
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:06Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+AiConversation.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\ConfigHandlers\MainConfigData.cs -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\ConfigHandlers\MainConfigData.cs
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:07Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+MainConfigData.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+>> pwsh -NoProfile -File .tang\cases\stcp-cross-platform-001\evidence\p0-07-s42-scan.ps1 -Path src\SystemTools.CrossPlatform\Shared\GlobalConstants.cs -Scope Source
+<< exit=0
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Shared\GlobalConstants.cs
+Scope    : Source
+Time(UTC): 2026-09-03T17:28:07Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+--- GATE-HIT FILES ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+GlobalConstants.cs
+VERDICT: PASS (zero gate hits)
+
+===================================================================
+SUMMARY: targets=12 failures=0

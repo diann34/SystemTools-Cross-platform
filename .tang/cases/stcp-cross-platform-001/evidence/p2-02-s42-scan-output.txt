@@ -1,0 +1,182 @@
+===== TARGET: src\SystemTools.CrossPlatform\Actions (exit=0) =====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Actions
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T02:12:53Z
+--- SUMMARY ---
+SourceFiles   : 20
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+ConditionalHits: 0 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionFlowExecutionConfirmationAction.cs
+AutoHideMainWindowWhenOccludedAction.cs
+AutoSwitchClassIslandThemeAction.cs
+BackgroundPlayAudioAction.cs
+ClearAllNotificationsAction.cs
+CopyAction.cs
+DeleteAction.cs
+FullscreenClockAction.cs
+KillProcessAction.cs
+LoadTemporaryClassPlanAction.cs
+MoveAction.cs
+OpenAppSettingsAction.cs
+OpenClassSwapWindowAction.cs
+OpenProfileEditorAction.cs
+ShowAiChatDialogAction.cs
+ShowToastAction.cs
+SwitchFloatingWindowThemeAction.cs
+ToggleFloatingWindowProfileAction.cs
+ToggleWorkflowAction.cs
+TriggerCustomTriggerAction.cs
+VERDICT: PASS (zero gate hits)
+===== TARGET: src\SystemTools.CrossPlatform\Controls (exit=0) =====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Controls
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T02:12:53Z
+--- SUMMARY ---
+SourceFiles   : 35
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+ConditionalHits: 0 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionFlowExecutionConfirmationSettingsControl.cs
+AiAttachmentDropConfirmation.axaml.cs
+AiAttachmentDropOverlay.axaml.cs
+AutoHideMainWindowWhenOccludedActionSettingsControl.cs
+AutoSwitchClassIslandThemeActionSettingsControl.cs
+BackgroundPlayAudioSettingsControl.cs
+Components\BetterCarouselContainerComponent.axaml.cs
+Components\BetterCarouselContainerSettingsControl.axaml.cs
+Components\ClipboardContentComponent.axaml.cs
+Components\ClipboardContentSettingsControl.axaml.cs
+Components\LocalQuoteComponent.axaml.cs
+Components\LocalQuoteSettingsControl.axaml.cs
+Components\NetworkStatusComponent.axaml.cs
+Components\NetworkStatusSettingsControl.axaml.cs
+Components\NextClassDisplayComponent.axaml.cs
+Components\NextClassDisplaySettingsControl.axaml.cs
+Components\ScrollingTextComponent.axaml.cs
+Components\ScrollingTextSettingsControl.axaml.cs
+CopySettingsControl.cs
+DeleteSettingsControl.cs
+FullscreenClockSettingsControl.cs
+InTimePeriodRuleSettingsControl.cs
+KillProcessSettingsControl.cs
+LoadTemporaryClassPlanSettingsControl.cs
+MoveSettingsControl.cs
+Notifications\AiReplyNotificationContent.axaml.cs
+ProcessRunningRuleSettingsControl.cs
+ShortcutKeyNotificationSettingsControl.cs
+ShowToastSettingsControl.cs
+SwitchFloatingWindowThemeSettingsControl.cs
+ToggleFloatingWindowProfileSettingsControl.cs
+ToggleWorkflowSettingsControl.cs
+TriggerCustomTriggerSettingsControl.cs
+UsingClassPlanRuleSettingsControl.cs
+UsingTimeLayoutRuleSettingsControl.cs
+VERDICT: PASS (zero gate hits)
+===== TARGET: src\SystemTools.CrossPlatform\Settings (exit=0) =====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Settings
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T02:12:53Z
+--- SUMMARY ---
+SourceFiles   : 17
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+ConditionalHits: 0 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+ActionFlowExecutionConfirmationSettings.cs
+ActionInProgressTriggerSettings.cs
+AutoHideMainWindowWhenOccludedActionSettings.cs
+AutoSwitchClassIslandThemeActionSettings.cs
+BackgroundPlayAudioSettings.cs
+CopySettings.cs
+DeleteSettings.cs
+FullscreenClockSettings.cs
+KillProcessSettings.cs
+LoadTemporaryClassPlanSettings.cs
+MoveSettings.cs
+ShortcutKeyNotificationSettings.cs
+ShowToastSettings.cs
+SwitchFloatingWindowThemeSettings.cs
+ToggleFloatingWindowProfileSettings.cs
+ToggleWorkflowSettings.cs
+TriggerCustomTriggerSettings.cs
+VERDICT: PASS (zero gate hits)
+===== TARGET: src\SystemTools.CrossPlatform\Services (exit=0) =====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\Services
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T02:12:53Z
+--- SUMMARY ---
+SourceFiles   : 14
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+ConditionalHits: 0 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+AdaptiveThemeSyncService.cs
+AiAttachmentDropService.cs
+AiAttachmentService.cs
+AiChatOperationGate.cs
+AiChatWindowService.cs
+AiConversationStore.cs
+AiPromptService.cs
+ClassIslandActionAiService.cs
+ClassIslandProfileAiService.cs
+IOpenAiCompatibleService.cs
+MainWindowTextOcclusionService.cs
+OpenAiCompatibleService.cs
+SystemToolsNotificationProvider.cs
+VirtualAfterSchoolService.cs
+VERDICT: PASS (zero gate hits)
+===== TARGET: src\SystemTools.CrossPlatform\ConfigHandlers\MainConfigData.cs (exit=0) =====
+=== S4.2 SCAN (stcp-cross-platform-001 / p0-07) ===
+Path     : src\SystemTools.CrossPlatform\ConfigHandlers\MainConfigData.cs
+Scope    : Source
+ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+Time(UTC): 2026-09-04T02:12:53Z
+--- SUMMARY ---
+SourceFiles   : 1
+AssetFiles    : 0
+GateHits      : 0
+CommentOnly   : 0 (non-gating, listed above)
+InfoHits      : 0
+ConditionalHits: 0 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+--- GATE-HIT FILES ---
+(none)
+--- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+(none)
+--- ZERO-HIT SOURCE FILES (gate rules; INFO rules in parens) ---
+MainConfigData.cs
+VERDICT: PASS (zero gate hits)

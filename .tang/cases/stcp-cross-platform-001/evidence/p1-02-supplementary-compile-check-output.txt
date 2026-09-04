@@ -1,0 +1,15 @@
+Roslyn: Microsoft.CodeAnalysis.CSharp, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+语法树：17（15 个交付 .cs + 2 个检查专用存根：隐式全局 using + InitializeComponent；axaml 由真实构建的 Avalonia XAML 编译器覆盖，不在本检查范围）
+共享框架：C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.10
+元数据引用数：237（C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.10 + E:\My Github Projects\SystemTools-Cross-platform\.tools\manifest-schema-check\bin\Release\net10.0，已滤原生镜像）
+Warning CS1701: Assuming assembly reference 'System.ObjectModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'CommunityToolkit.Mvvm' matches identity 'System.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.ObjectModel', you may need to supply runtime policy [<no-source>]
+Warning CS1701: Assuming assembly reference 'System.ObjectModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'CommunityToolkit.Mvvm' matches identity 'System.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.ObjectModel', you may need to supply runtime policy [<no-source>]
+Warning CS1701: Assuming assembly reference 'System.ObjectModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'CommunityToolkit.Mvvm' matches identity 'System.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.ObjectModel', you may need to supply runtime policy [<no-source>]
+Warning CS1701: Assuming assembly reference 'System.ObjectModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'CommunityToolkit.Mvvm' matches identity 'System.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.ObjectModel', you may need to supply runtime policy [<no-source>]
+Warning CS1701: Assuming assembly reference 'System.ObjectModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'CommunityToolkit.Mvvm' matches identity 'System.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.ObjectModel', you may need to supply runtime policy [<no-source>]
+COMPILE OK（error=0, warning=5）—— 15 个交付 .cs 语义级编译通过（+1 检查专用存根）
+==== 检查升级复现性探针（ImplicitUsings 语境） ====
+背景：工部 p1-10 构建门禁暴露 CS0104（Triggers\ActionInProgressTrigger.cs 裸 Timer 歧义），本检查此前未复现构建期 ImplicitUsings 注入语境故漏检。升级：编译树注入 .NET SDK 隐式全局 using 集 7 项（System/System.Collections.Generic/System.IO/System.Linq/System.Net.Http/System.Threading/System.Threading.Tasks）。探针（同一引用拓扑）：
+  修复前形态（using System.Timers; class X { Timer? t; }） => error=1 CS0104: 'Timer' is an ambiguous reference between 'System.Timers.Timer' and 'System.Threading.Timer'（与工部构建日志一致，证明检查方法已复现构建语境）
+  修复后形态（System.Timers.Timer 完全限定） => error=0
+主检查结论（17 树 = 隐式全局 using + 15 交付 .cs + InitializeComponent 存根）：error=0——全批无同类裸名歧义再现（Process/Task/Timer 等逐名筛查通过）。

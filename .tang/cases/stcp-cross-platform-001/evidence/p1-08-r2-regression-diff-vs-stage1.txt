@@ -1,0 +1,22 @@
+[R-2 回归差集留档 · p1-08 刑部 · 2026-09-03]
+对比对象：
+  基准 = p1-08-s42-fulltree-source-output.txt（阶段 1 终态留档，R-1 版扫描器，2026-09-03T18:42:38Z）
+  新版 = p1-08-r2-regression-fulltree-source-output.txt（R-2 版扫描器复跑，2026-09-03T20:23:15Z）
+命令：Compare-Object -ReferenceObject $old -DifferenceObject $new（139 行 vs 143 行）
+
+差集恰 6 行（<= 仅基准有，=> 仅新版有）：
+<= Time(UTC): 2026-09-03T18:42:38Z
+=> ScannerRev: R-2 (2026-09-03: R-1 single-file fix + R-2 PLATFORMS_WINDOWS conditional files; see p0-07-quality-gates.md section 11)
+=> Time(UTC): 2026-09-03T20:23:15Z
+=> ConditionalHits: 0 (R-2 non-gating; verify listed files against 06 documented Windows-specific items)
+=> --- CONDITIONAL FILES (R-2: guarded Windows-specific symbols; non-gating) ---
+=> (none)
+
+判读：
+- 2 行 Time(UTC) 为运行时刻固有差异（每次运行必不同）；
+- 4 行为 R-2 修订的新增行（版本注记 1 + 摘要计数行 1 + CONDITIONAL FILES 节头 1 + 空清单 (none) 1）；
+- 其余全部内容行——命中行（无）、SUMMARY 计数（SourceFiles=119 / GateHits=0 / CommentOnly=6 / InfoHits=0）、
+  --- GATE-HIT FILES --- (none)、--- ZERO-HIT SOURCE FILES --- 全部 119 文件清单、VERDICT: PASS (zero gate hits)——
+  逐字节一致。R-2 对阶段 1 终态树**零误伤**（ConditionalHits=0，无任何既有文件被重分类）。
+- R-2 复跑进程 exit=0；单文件模式复验：Plugin.cs（1/0/COND 0/PASS/exit=0）、csproj（1/0 + 6 COMMENT-ONLY/COND 0/PASS/exit=0，
+  csproj 非 .cs，guard 逻辑不适用，P 规则与 COMMENT-ONLY 语义未动）。
