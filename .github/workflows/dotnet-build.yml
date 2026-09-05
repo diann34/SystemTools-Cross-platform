@@ -39,4 +39,4 @@ jobs:
         with:
           name: systemtools-cipx-artifacts
           path: |
-            ./cipx/SystemTools.cipx
+            /home/runner/work/SystemTools-Cross-platform/SystemTools-Cross-platform/src/SystemTools.CrossPlatform/cipx/SystemTools.CrossPlatform.cipx
