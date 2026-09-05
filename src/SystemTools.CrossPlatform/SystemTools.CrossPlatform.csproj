@@ -1,10 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <!-- 单一 net10.0 目标框架：同一份插件程序集（同一 cipx）可安装到 Windows / Linux / macOS
-             的 ClassIsland 并直接运行。平台差异一律在运行期用 OperatingSystem.IsWindows() 等
-             判断（SystemShutdownMonitor / SystemPowerCommand / ProcessMemoryMaintenance /
-             SystemMotionPreferences 均已收敛为运行期分派），不再使用 #if Platforms_* 条件编译，
-             也不再按构建机 OS 自动升级 TFM（net10.0-windows10.0.19041.0 / net10.0-macos*）。 -->
         <TargetFramework>net10.0</TargetFramework>
         <RootNamespace>SystemTools.CrossPlatform</RootNamespace>
         <TargetName>SystemTools.CrossPlatform</TargetName>
@@ -19,8 +14,6 @@
 
     <PropertyGroup>
         <ClassIslandSourceRoot Condition="'$(ClassIslandSourceRoot)' == ''">E:\ClassIsland-git-misha</ClassIslandSourceRoot>
-        <!-- NuGet 是默认模式（宿主 ClassIsland.PluginSdk 2.1.1.1 为 net10.0 纯框架，兼容单一 TFM 产物）；
-             IDE 设计时构建不依赖宿主源码检出的 git 状态。 -->
         <UseLocalClassIslandSdk Condition="'$(UseLocalClassIslandSdk)' == ''">false</UseLocalClassIslandSdk>
         <ClassIslandPluginSdkVersion Condition="'$(ClassIslandPluginSdkVersion)' == ''">2.1.1.1</ClassIslandPluginSdkVersion>
     </PropertyGroup>
@@ -39,7 +32,6 @@
             <GlobalPropertiesToRemove>CreateCipx</GlobalPropertiesToRemove>
         </ProjectReference>
 
-        <!-- 保持 IDE 可直接看到编译期依赖；运行时全部由宿主提供，不随 cipx 打包。 -->
         <PackageReference Include="Avalonia" Version="12.1.1">
             <ExcludeAssets>runtime;native</ExcludeAssets>
         </PackageReference>

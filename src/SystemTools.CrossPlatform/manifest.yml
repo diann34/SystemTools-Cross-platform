@@ -1,8 +1,8 @@
 id: SystemTools-Cross-platform
-name: SystemTools 跨平台版
-description: SystemTools 插件的跨平台独立版本（Windows/Linux/macOS），与原 SystemTools 插件同装并存，功能按阶段迁移交付。
+name: SystemTools-Cross-platform
+description: （SystemTools 跨平台版）提供多彩而丰富的更多 组件/主题/行动/规则集/触发器/实用工具/AI功能
 entranceAssembly: "SystemTools.CrossPlatform.dll"
-version: 1.0.0.0
+version: 3.0.0.0
 apiVersion: 2.2.0.0
 author: Programmer-MrWang
 readme: ""
