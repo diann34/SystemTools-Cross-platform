@@ -1,0 +1,42 @@
+name: Build Project
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Checkout ClassIsland SDK source
+        uses: actions/checkout@v4
+        with:
+          repository: ClassIsland/ClassIsland
+          ref: develop/v2/misha-alpha
+          path: ClassIsland
+          # ClassIsland derives AssemblyVersion from git tags via git describe.
+          fetch-depth: 0
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore -p:UseLocalClassIslandSdk=true -p:ClassIslandSourceRoot="${{ github.workspace }}/ClassIsland"
+
+      - name: Build CIPX
+        run: dotnet publish -p:CreateCipx=true -p:UseLocalClassIslandSdk=true -p:ClassIslandSourceRoot="${{ github.workspace }}/ClassIsland" --configuration Release --no-restore
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: systemtools-cipx-artifacts
+          path: |
+            ./cipx/SystemTools.cipx
